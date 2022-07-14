@@ -1,0 +1,6196 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <title>SDNC_V4.1.5API Document(Omada_SDN_Controller_V4.1.5)</title>
+      <meta charset="utf-8">
+      <style>@charset "UTF-8";
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*  */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/*  */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset006pxrgba(255, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/*  */
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: inset006pxrgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+  font-size: 13px;
+  line-height: 25px;
+  color: #393838;
+  position: relative;
+}
+
+table {
+  margin: 10px 0 15px 0;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  border: 1px solid #ddd;
+  padding: 3px 10px;
+}
+
+th {
+  padding: 5px 10px;
+}
+
+a, a:link, a:visited {
+  color: #34495e;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: #59d69d;
+  text-decoration: none;
+}
+
+a img {
+  border: none;
+}
+
+p {
+  padding-left: 10px;
+  margin-bottom: 9px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #404040;
+  line-height: 36px;
+}
+
+h1 {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 16px;
+  font-size: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ddd;
+  line-height: 50px;
+}
+
+h2 {
+  font-size: 28px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+h3 {
+  clear: both;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-left: 3px solid #59d69d;
+  padding-left: 8px;
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  font-size: 13px;
+}
+
+hr {
+  margin: 0 0 19px;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+blockquote {
+  padding: 13px 13px 21px 15px;
+  margin-bottom: 18px;
+  font-family: georgia, serif;
+  font-style: italic;
+}
+
+blockquote:before {
+  font-size: 40px;
+  margin-left: -10px;
+  font-family: georgia, serif;
+  color: #eee;
+}
+
+blockquote p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 18px;
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+code,
+pre {
+  font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+
+code {
+  background-color: #fee9cc;
+  color: rgba(0, 0, 0, 0.75);
+  padding: 1px 3px;
+  font-size: 12px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+pre {
+  display: block;
+  padding: 14px;
+  margin: 0 0 18px;
+  line-height: 16px;
+  font-size: 11px;
+  border: 1px solid #d9d9d9;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background: #f6f6f6;
+}
+
+pre code {
+  background-color: #f6f6f6;
+  color: #737373;
+  font-size: 11px;
+  padding: 0;
+}
+
+sup {
+  font-size: 0.83em;
+  vertical-align: super;
+  line-height: 0;
+}
+
+* {
+  -webkit-print-color-adjust: exact;
+}
+
+@media print {
+  body,
+  code,
+  pre code,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: black;
+  }
+
+  table,
+  pre {
+    page-break-inside: avoid;
+  }
+}
+html,
+body {
+  height: 100%;
+}
+
+.table-of-contents {
+  position: fixed;
+  top: 61px;
+  left: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 260px;
+}
+
+.table-of-contents > ul > li > a {
+  font-size: 20px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+.table-of-contents ul {
+  overflow: auto;
+  margin: 0px;
+  height: 100%;
+  padding: 0px 0px;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+.table-of-contents ul li {
+  padding-left: 20px;
+}
+
+.table-of-contents a {
+  padding: 2px 0px;
+  display: block;
+  text-decoration: none;
+}
+
+.content-right {
+  max-width: 2000px;
+  margin-left: 290px;
+  padding-left: 70px;
+  flex-grow: 1;
+}
+.content-right h2:target {
+  padding-top: 80px;
+}
+
+body > p {
+  margin-left: 30px;
+}
+
+body > table {
+  margin-left: 30px;
+}
+
+body > pre {
+  margin-left: 30px;
+}
+
+.curProject {
+  position: fixed;
+  top: 20px;
+  font-size: 25px;
+  color: black;
+  margin-left: -240px;
+  width: 240px;
+  padding: 5px;
+  line-height: 25px;
+  box-sizing: border-box;
+}
+
+.g-doc {
+  margin-top: 56px;
+  padding-top: 24px;
+  display: flex;
+}
+
+.curproject-name {
+  font-size: 42px;
+}
+
+.m-header {
+  background: #32363a;
+  height: 56px;
+  line-height: 56px;
+  padding-left: 60px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.m-header .title {
+  font-size: 22px;
+  color: #fff;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  margin-left: 16px;
+  padding: 0;
+  line-height: 56px;
+  border: none;
+}
+.m-header .nav {
+  color: #fff;
+  font-size: 16px;
+  position: absolute;
+  right: 32px;
+  top: 0;
+}
+.m-header .nav a {
+  color: #fff;
+  margin-left: 16px;
+  padding: 8px;
+  transition: color .2s;
+}
+.m-header .nav a:hover {
+  color: #59d69d;
+}
+
+.m-footer {
+  border-top: 1px solid #ddd;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+/*# sourceMappingURL=defaultTheme.css.map */
+</style>
+      </head>
+      <body>
+        <div class="m-header">
+          <a href="#" style="display: inherit;"><svg class="svg" width="32px" height="32px" viewBox="0 0 64 64" version="1.1"><title>Icon</title><desc>Created with Sketch.</desc><defs><linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1"><stop stop-color="#FFFFFF" offset="0%"></stop><stop stop-color="#F2F2F2" offset="100%"></stop></linearGradient><circle id="path-2" cx="31.9988602" cy="31.9988602" r="2.92886048"></circle><filter x="-85.4%" y="-68.3%" width="270.7%" height="270.7%" filterUnits="objectBoundingBox" id="filter-3"><feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset><feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur><feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.159703351 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix></filter></defs><g id="Home_Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Large_Screen"><g id="Icon"><circle id="Oval-1" fill="url(#linearGradient-1)" cx="32" cy="32" r="32"></circle><path d="M36.7078009,31.8054514 L36.7078009,51.7110548 C36.7078009,54.2844537 34.6258634,56.3695395 32.0579205,56.3695395 C29.4899777,56.3695395 27.4099998,54.0704461 27.4099998,51.7941246 L27.4099998,31.8061972 C27.4099998,29.528395 29.4909575,27.218453 32.0589004,27.230043 C34.6268432,27.241633 36.7078009,29.528395 36.7078009,31.8054514 Z" id="blue" fill="#2359F1" fill-rule="nonzero"></path><path d="M45.2586091,17.1026914 C45.2586091,17.1026914 45.5657231,34.0524383 45.2345291,37.01141 C44.9033351,39.9703817 43.1767091,41.6667796 40.6088126,41.6667796 C38.040916,41.6667796 35.9609757,39.3676862 35.9609757,37.0913646 L35.9609757,17.1034372 C35.9609757,14.825635 38.0418959,12.515693 40.6097924,12.527283 C43.177689,12.538873 45.2586091,14.825635 45.2586091,17.1026914 Z" id="green" fill="#57CF27" fill-rule="nonzero" transform="translate(40.674608, 27.097010) rotate(60.000000) translate(-40.674608, -27.097010) "></path><path d="M28.0410158,17.0465598 L28.0410158,36.9521632 C28.0410158,39.525562 25.9591158,41.6106479 23.3912193,41.6106479 C20.8233227,41.6106479 18.7433824,39.3115545 18.7433824,37.035233 L18.7433824,17.0473055 C18.7433824,14.7695034 20.8243026,12.4595614 23.3921991,12.4711513 C25.9600956,12.4827413 28.0410158,14.7695034 28.0410158,17.0465598 Z" id="red" fill="#FF561B" fill-rule="nonzero" transform="translate(23.392199, 27.040878) rotate(-60.000000) translate(-23.392199, -27.040878) "></path><g id="inner-round"><use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink="http://www.w3.org/1999/xlink" xlink:href="#path-2"></use><use fill="#F7F7F7" fill-rule="evenodd" xlink="http://www.w3.org/1999/xlink" xlink:href="#path-2"></use></g></g></g></g></svg></a>
+          <a href="#"><h1 class="title">YAPI API Document</h1></a>
+          <div class="nav">
+            <a href="https://hellosean1025.github.io/yapi/">YApi</a>
+          </div>
+        </div>
+        <div class="g-doc">
+          <div class="table-of-contents"><ul><li><a href="#quick20setup">Quick Setup</a><ul><li><a href="#bind20a20tp-link20id20to20the20controller20as20the20cloud20main-administrator0a3ca20id3dbind20a20tp-link20id20to20the20controller20as20the20cloud20main-administrator3e203ca3e">Bind a TP-Link ID to the Controller as the Cloud Main-Administrator
+</a><a id="Bind" a="" tp-link="" to="" the="" controller="" as="" cloud="" main-administrator=""> </a></li><li><a href="#check20initialization20status0a3ca20id3dcheck20initialization20status3e203ca3e">Check Initialization Status
+</a><a id="Check" initialization="" status=""> </a></li><li><a href="#check20the20status20of20cloud20user0a3ca20id3dcheck20the20status20of20cloud20user3e203ca3e">Check the Status of Cloud User
+</a><a id="Check" the="" status="" of="" cloud="" user=""> </a></li><li><a href="#edit20the20cloud20access20function0a3ca20id3dedit20the20cloud20access20function3e203ca3e">Edit the Cloud Access function
+</a><a id="Edit" the="" cloud="" access="" function=""> </a></li><li><a href="#get20basic20information20of20the20controller200a3ca20id3dget20basic20information20of20the20controller203e203ca3e">Get Basic Information of the Controller 
+</a><a id="Get" basic="" information="" of="" the="" controller=""> </a></li><li><a href="#get20controller20information20during20quick20setup20process0a3ca20id3dget20controller20information20during20quick20setup20process3e203ca3e">Get Controller Information During Quick Setup Process
+</a><a id="Get" controller="" information="" during="" quick="" setup="" process=""> </a></li><li><a href="#get20the20list20of20pending20devices2028factory20default2920without20login0a3ca20id3dget20the20list20of20pending20devices2028factory20default2920without20login3e203ca3e">Get the List of Pending Devices (Factory Default) Without Login
+</a><a id="Get" the="" list="" of="" pending="" devices="" (factory="" default)="" without="" login=""> </a></li><li><a href="#get20the20type20of20the20controller0a3ca20id3dget20the20type20of20the20controller3e203ca3e">Get the Type of the Controller
+</a><a id="Get" the="" type="" of="" controller=""> </a></li><li><a href="#unbind20the20tp-link20id20to20the20controller200a3ca20id3dunbind20the20tp-link20id20to20the20controller203e203ca3e">Unbind the TP-Link ID to the Controller 
+</a><a id="Unbind" the="" tp-link="" to="" controller=""> </a></li><li><a href="#wizard20configuration0a3ca20id3dwizard20configuration3e203ca3e">Wizard Configuration
+</a><a id="Wizard" configuration=""> </a></li></ul></li><li><a href="#login">Login</a><ul><li><a href="#check20the20status20of20login0a3ca20id3dcheck20the20status20of20login3e203ca3e">Check the Status of Login
+</a><a id="Check" the="" status="" of="" login=""> </a></li><li><a href="#log20in200a3ca20id3dlog20in203e203ca3e">Log In 
+</a><a id="Log" in=""> </a></li><li><a href="#log20out0a3ca20id3dlog20out3e203ca3e">Log Out
+</a><a id="Log" out=""> </a></li><li><a href="#reset20the20password0a3ca20id3dreset20the20password3e203ca3e">Reset the Password
+</a><a id="Reset" the="" password=""> </a></li><li><a href="#specify20the20email20address20for20resetting20the20password0a3ca20id3dspecify20the20email20address20for20resetting20the20password3e203ca3e">Specify the Email Address for Resetting the Password
+</a><a id="Specify" the="" email="" address="" for="" resetting="" password=""> </a></li></ul></li><li><a href="#admin">Admin</a><ul><li><a href="#20delete20an20admin20account0a3ca20id3d20delete20an20admin20account3e203ca3e"> Delete an Admin Account
+</a><a id="Delete" an="" admin="" account=""> </a></li><li><a href="#add20a20new20admin20account0a3ca20id3dadd20a20new20admin20account3e203ca3e">Add a New Admin Account
+</a><a id="Add" a="" new="" admin="" account=""> </a></li><li><a href="#edit20an20admin20account0a3ca20id3dedit20an20admin20account3e203ca3e">Edit an Admin Account
+</a><a id="Edit" an="" admin="" account=""> </a></li><li><a href="#get20information20of20the20current20admin20account0a3ca20id3dget20information20of20the20current20admin20account3e203ca3e">Get Information of the Current Admin Account
+</a><a id="Get" information="" of="" the="" current="" admin="" account=""> </a></li><li><a href="#get20the20list20of20admin20accounts0a3ca20id3dget20the20list20of20admin20accounts3e203ca3e">Get the List of Admin Accounts
+</a><a id="Get" the="" list="" of="" admin="" accounts=""> </a></li><li><a href="#pop-up20window20for20verfication20when20editing20admin20account0a3ca20id3dpop-up20window20for20verfication20when20editing20admin20account3e203ca3e">Pop-up Window for Verfication When Editing Admin Account
+</a><a id="Pop-up" window="" for="" verfication="" when="" editing="" admin="" account=""> </a></li><li><a href="#resend20an20invitation20mail0a3ca20id3dresend20an20invitation20mail3e203ca3e">Resend an Invitation Mail
+</a><a id="Resend" an="" invitation="" mail=""> </a></li></ul></li><li><a href="#ap20information20and20settings">AP Information and Settings</a><ul><li><a href="#change20the20uplink20ap0a3ca20id3dchange20the20uplink20ap3e203ca3e">Change the Uplink AP
+</a><a id="Change" the="" uplink="" ap=""> </a></li><li><a href="#check20if20the20candidate20uplink20ap20is20valid0a3ca20id3dcheck20if20the20candidate20uplink20ap20is20valid3e203ca3e">Check If the Candidate Uplink AP is Valid
+</a><a id="Check" if="" the="" candidate="" uplink="" ap="" is="" valid=""> </a></li><li><a href="#get20the20channel20information20supported20by20an20ap0a3ca20id3dget20the20channel20information20supported20by20an20ap3e203ca3e">Get the Channel Information Supported by an AP
+</a><a id="Get" the="" channel="" information="" supported="" by="" an="" ap=""> </a></li><li><a href="#get20the20channel20information20of20a20site0a3ca20id3dget20the20channel20information20of20a20site3e203ca3e">Get the Channel Information of a Site
+</a><a id="Get" the="" channel="" information="" of="" a="" site=""> </a></li><li><a href="#get20the20details20of20an20ap0a3ca20id3dget20the20details20of20an20ap3e203ca3e">Get the Details of an AP
+</a><a id="Get" the="" details="" of="" an="" ap=""> </a></li><li><a href="#get20the20mesh20information20of20an20ap0a3ca20id3dget20the20mesh20information20of20an20ap3e203ca3e">Get the Mesh Information of an AP
+</a><a id="Get" the="" mesh="" information="" of="" an="" ap=""> </a></li><li><a href="#modify20the20settings20of20aps20in20batches0a3ca20id3dmodify20the20settings20of20aps20in20batches3e203ca3e">Modify the Settings of APs in Batches
+</a><a id="Modify" the="" settings="" of="" aps="" in="" batches=""> </a></li><li><a href="#modify20the20settings20of20an20ap0a3ca20id3dmodify20the20settings20of20an20ap3e203ca3e">Modify the Settings of an AP
+</a><a id="Modify" the="" settings="" of="" an="" ap=""> </a></li><li><a href="#move20devices20to20other20sites0a3ca20id3dmove20devices20to20other20sites3e203ca3e">Move Devices to Other Sites
+</a><a id="Move" devices="" to="" other="" sites=""> </a></li><li><a href="#scan20the20available20candidate20uplink20ap0a3ca20id3dscan20the20available20candidate20uplink20ap3e203ca3e">Scan the Available Candidate Uplink AP
+</a><a id="Scan" the="" available="" candidate="" uplink="" ap=""> </a></li></ul></li><li><a href="#clients">Clients</a><ul><li><a href="#20get20the20list20of20a20client27s20connection20history0a3ca20id3d20get20the20list20of20a20client27s20connection20history3e203ca3e"> Get the List of a client's Connection History
+</a><a id="Get" the="" list="" of="" a="" client's="" connection="" history=""> </a></li><li><a href="#20manage20a20single20client0a3ca20id3d20manage20a20single20client3e203ca3e"> Manage a Single Client
+</a><a id="Manage" a="" single="" client=""> </a></li><li><a href="#authorize20clients0a3ca20id3dauthorize20clients3e203ca3e">Authorize Clients
+</a><a id="Authorize" clients=""> </a></li><li><a href="#block20clients0a3ca20id3dblock20clients3e203ca3e">Block Clients
+</a><a id="Block" clients=""> </a></li><li><a href="#get20the20information20of20the20client0a3ca20id3dget20the20information20of20the20client3e203ca3e">Get the Information of the Client
+</a><a id="Get" the="" information="" of="" client=""> </a></li><li><a href="#get20the20list20of20online20clients0a3ca20id3dget20the20list20of20online20clients3e203ca3e">Get the List of Online Clients
+</a><a id="Get" the="" list="" of="" online="" clients=""> </a></li><li><a href="#manage20multiple20clients20in20batch0a3ca20id3dmanage20multiple20clients20in20batch3e203ca3e">Manage Multiple Clients In Batch
+</a><a id="Manage" multiple="" clients="" in="" batch=""> </a></li><li><a href="#reconnect20clients0a3ca20id3dreconnect20clients3e203ca3e">Reconnect Clients
+</a><a id="Reconnect" clients=""> </a></li><li><a href="#unauthorize20clients0a3ca20id3dunauthorize20clients3e203ca3e">Unauthorize Clients
+</a><a id="Unauthorize" clients=""> </a></li><li><a href="#unblock20clients0a3ca20id3dunblock20clients3e203ca3e">Unblock Clients
+</a><a id="Unblock" clients=""> </a></li></ul></li><li><a href="#dashboard-ui">Dashboard-UI</a><ul><li><a href="#get20the20overview20diagram20of20network20topology0a3ca20id3dget20the20overview20diagram20of20network20topology3e203ca3e">Get the Overview Diagram of Network Topology
+</a><a id="Get" the="" overview="" diagram="" of="" network="" topology=""> </a></li><li><a href="#get20the20snapshot20of20controller0a3ca20id3dget20the20snapshot20of20controller3e203ca3e">Get the Snapshot of Controller
+</a><a id="Get" the="" snapshot="" of="" controller=""> </a></li></ul></li><li><a href="#dashboard-client">Dashboard-Client</a><ul><li><a href="#get20the20frequency20distribution20of20clients0a3ca20id3dget20the20frequency20distribution20of20clients3e203ca3e">Get the Frequency Distribution of Clients
+</a><a id="Get" the="" frequency="" distribution="" of="" clients=""> </a></li><li><a href="#get20the20information20about20association20failures20and20the20corresponding20ap20list0a3ca20id3dget20the20information20about20association20failures20and20the20corresponding20ap20list3e203ca3e">Get the Information about Association Failures and the Corresponding AP List
+</a><a id="Get" the="" information="" about="" association="" failures="" and="" corresponding="" ap="" list=""> </a></li><li><a href="#get20the20information20about20client20activities0a3ca20id3dget20the20information20about20client20activities3e203ca3e">Get the Information about Client Activities
+</a><a id="Get" the="" information="" about="" client="" activities=""> </a></li><li><a href="#get20the20longest20uptime20client200a3ca20id3dget20the20longest20uptime20client203e203ca3e">Get the Longest Uptime Client 
+</a><a id="Get" the="" longest="" uptime="" client=""> </a></li><li><a href="#get20the20most20active20clients0a3ca20id3dget20the20most20active20clients3e203ca3e">Get the Most Active Clients
+</a><a id="Get" the="" most="" active="" clients=""> </a></li></ul></li><li><a href="#dashboard-network">Dashboard-Network</a><ul><li><a href="#get20the20alerts0a3ca20id3dget20the20alerts3e203ca3e">Get the Alerts
+</a><a id="Get" the="" alerts=""> </a></li><li><a href="#get20the20distribution20of20aps20and20clients20among20channels20and20channel20usage0a3ca20id3dget20the20distribution20of20aps20and20clients20among20channels20and20channel20usage3e203ca3e">Get the Distribution of APs and Clients among Channels and Channel Usage
+</a><a id="Get" the="" distribution="" of="" aps="" and="" clients="" among="" channels="" channel="" usage=""> </a></li><li><a href="#get20the20distribution20of20clients0a3ca20id3dget20the20distribution20of20clients3e203ca3e">Get the Distribution of Clients
+</a><a id="Get" the="" distribution="" of="" clients=""> </a></li><li><a href="#get20the20distribution20of20traffic0a3ca20id3dget20the20distribution20of20traffic3e203ca3e">Get the Distribution of Traffic
+</a><a id="Get" the="" distribution="" of="" traffic=""> </a></li><li><a href="#get20the20most20active20eaps0a3ca20id3dget20the20most20active20eaps3e203ca3e">Get the Most Active EAPs
+</a><a id="Get" the="" most="" active="" eaps=""> </a></li><li><a href="#get20the20most20active20switches0a3ca20id3dget20the20most20active20switches3e203ca3e">Get the Most Active Switches
+</a><a id="Get" the="" most="" active="" switches=""> </a></li><li><a href="#get20the20retry20rate2020dropped20rate0a3ca20id3dget20the20retry20rate2020dropped20rate3e203ca3e">Get the Retry Rate / Dropped Rate
+</a><a id="Get" the="" retry="" rate="" dropped=""> </a></li><li><a href="#get20the20traffic20activities0a3ca20id3dget20the20traffic20activities3e203ca3e">Get the Traffic Activities
+</a><a id="Get" the="" traffic="" activities=""> </a></li><li><a href="#get20the20wifi20summary0a3ca20id3dget20the20wifi20summary3e203ca3e">Get the Wifi Summary
+</a><a id="Get" the="" wifi="" summary=""> </a></li></ul></li><li><a href="#devices">Devices</a><ul><li><a href="#adopt20devices20of20certain20class20in20batch0a3ca20id3dadopt20devices20of20certain20class20in20batch3e203ca3e">Adopt Devices of Certain Class in Batch
+</a><a id="Adopt" devices="" of="" certain="" class="" in="" batch=""> </a></li><li><a href="#adopt20a20device0a3ca20id3dadopt20a20device3e203ca3e">Adopt a Device
+</a><a id="Adopt" a="" device=""> </a></li><li><a href="#locate20a20device0a3ca20id3dlocate20a20device3e203ca3e">Locate a Device
+</a><a id="Locate" a="" device=""> </a></li><li><a href="#upload20the20upgrade20image20for20a20device0a3ca20id3dupload20the20upgrade20image20for20a20device3e203ca3e">Upload the Upgrade Image for a Device
+</a><a id="Upload" the="" upgrade="" image="" for="" a="" device=""> </a></li><li><a href="#delete20the20upgrade20image20for20a20device0a3ca20id3ddelete20the20upgrade20image20for20a20device3e203ca3e">Delete the Upgrade Image for a Device
+</a><a id="Delete" the="" upgrade="" image="" for="" a="" device=""> </a></li><li><a href="#delete20a20tag0a3ca20id3ddelete20a20tag3e203ca3e">Delete a Tag
+</a><a id="Delete" a="" tag=""> </a></li><li><a href="#cancel20online20rolling20upgrades20for20devices0a3ca20id3dcancel20online20rolling20upgrades20for20devices3e203ca3e">Cancel Online Rolling Upgrades for Devices
+</a><a id="Cancel" online="" rolling="" upgrades="" for="" devices=""> </a></li><li><a href="#upgrade20a20device20online0a3ca20id3dupgrade20a20device20online3e203ca3e">Upgrade a Device Online
+</a><a id="Upgrade" a="" device="" online=""> </a></li><li><a href="#perform20online20rolling20upgrades20for20devices0a3ca20id3dperform20online20rolling20upgrades20for20devices3e203ca3e">Perform Online Rolling Upgrades for Devices
+</a><a id="Perform" online="" rolling="" upgrades="" for="" devices=""> </a></li><li><a href="#force20provision20for20a20device0a3ca20id3dforce20provision20for20a20device3e203ca3e">Force Provision for a Device
+</a><a id="Force" provision="" for="" a="" device=""> </a></li><li><a href="#upgrade20a20device20manually0a3ca20id3dupgrade20a20device20manually3e203ca3e">Upgrade a Device Manually
+</a><a id="Upgrade" a="" device="" manually=""> </a></li><li><a href="#forget20a20device0a3ca20id3dforget20a20device3e203ca3e">Forget a Device
+</a><a id="Forget" a="" device=""> </a></li><li><a href="#query20the20online20rolling20upgrade20status20of20devices20in20a20site0a3ca20id3dquery20the20online20rolling20upgrade20status20of20devices20in20a20site3e203ca3e">Query the Online Rolling Upgrade Status of Devices in a Site
+</a><a id="Query" the="" online="" rolling="" upgrade="" status="" of="" devices="" in="" a="" site=""> </a></li><li><a href="#query20the20online20upgrade20status20of20a20device20by20mac20address0a3ca20id3dquery20the20online20upgrade20status20of20a20device20by20mac20address3e203ca3e">Query the Online Upgrade Status of a Device by MAC Address
+</a><a id="Query" the="" online="" upgrade="" status="" of="" a="" device="" by="" mac="" address=""> </a></li><li><a href="#add20tags2020add20tag20group20members200a3ca20id3dadd20tags2020add20tag20group20members203e203ca3e">Add Tags / Add Tag Group Members 
+</a><a id="Add" tags="" add="" tag="" group="" members=""> </a></li><li><a href="#get20the20firmware20version20of20a20device0a3ca20id3dget20the20firmware20version20of20a20device3e203ca3e">Get the Firmware Version of a Device
+</a><a id="Get" the="" firmware="" version="" of="" a="" device=""> </a></li><li><a href="#get20the20list20of20the20devices20in20one20site0a3ca20id3dget20the20list20of20the20devices20in20one20site3e203ca3e">Get the List of the Devices in One Site
+</a><a id="Get" the="" list="" of="" devices="" in="" one="" site=""> </a></li><li><a href="#query20the20upgrade20progress20of20a20device20by20mac20address0a3ca20id3dquery20the20upgrade20progress20of20a20device20by20mac20address3e203ca3e">Query the Upgrade Progress of a Device by MAC Address
+</a><a id="Query" the="" upgrade="" progress="" of="" a="" device="" by="" mac="" address=""> </a></li><li><a href="#query20the20upgrade20progress20of20a20device20through20the20upgradeid0a3ca20id3dquery20the20upgrade20progress20of20a20device20through20the20upgradeid3e203ca3e">Query the Upgrade Progress of a Device through the UpgradeId
+</a><a id="Query" the="" upgrade="" progress="" of="" a="" device="" through="" upgradeid=""> </a></li><li><a href="#get20the20list20of20tags20and20the20corresponding20devices0a3ca20id3dget20the20list20of20tags20and20the20corresponding20devices3e203ca3e">Get the List of Tags and the Corresponding Devices
+</a><a id="Get" the="" list="" of="" tags="" and="" corresponding="" devices=""> </a></li><li><a href="#reboot20a20device0a3ca20id3dreboot20a20device3e203ca3e">Reboot a Device
+</a><a id="Reboot" a="" device=""> </a></li></ul></li><li><a href="#hotspot20interface">Hotspot Interface</a><ul><li><a href="#export20the20local20users20on20the20site0a3ca20id3dexport20the20local20users20on20the20site3e203ca3e">Export the Local users on the Site
+</a><a id="Export" the="" local="" users="" on="" site=""> </a></li><li><a href="#20get20the20information20of20the20selected20vouchers0a3ca20id3d20get20the20information20of20the20selected20vouchers3e203ca3e"> Get the Information of the Selected Vouchers
+</a><a id="Get" the="" information="" of="" selected="" vouchers=""> </a></li><li><a href="#add20new20vouchers0a3ca20id3dadd20new20vouchers3e203ca3e">Add New Vouchers
+</a><a id="Add" new="" vouchers=""> </a></li><li><a href="#add20a20new20operator0a3ca20id3dadd20a20new20operator3e203ca3e">Add a New Operator
+</a><a id="Add" a="" new="" operator=""> </a></li><li><a href="#change20the20site20of20the20operator0a3ca20id3dchange20the20site20of20the20operator3e203ca3e">Change the Site of the Operator
+</a><a id="Change" the="" site="" of="" operator=""> </a></li><li><a href="#check20the20login20status20of20the20operator0a3ca20id3dcheck20the20login20status20of20the20operator3e203ca3e">Check the Login Status of the Operator
+</a><a id="Check" the="" login="" status="" of="" operator=""> </a></li><li><a href="#delete20expired20clients200a3ca20id3ddelete20expired20clients203e203ca3e">Delete Expired Clients 
+</a><a id="Delete" expired="" clients=""> </a></li><li><a href="#delete20local20user0a3ca20id3ddelete20local20user3e203ca3e">Delete Local User
+</a><a id="Delete" local="" user=""> </a></li><li><a href="#delete20voucher0a3ca20id3ddelete20voucher3e203ca3e">Delete Voucher
+</a><a id="Delete" voucher=""> </a></li><li><a href="#delete20an20operator0a3ca20id3ddelete20an20operator3e203ca3e">Delete an Operator
+</a><a id="Delete" an="" operator=""> </a></li><li><a href="#delete20the20selected20vouchers0a3ca20id3ddelete20the20selected20vouchers3e203ca3e">Delete the Selected Vouchers
+</a><a id="Delete" the="" selected="" vouchers=""> </a></li><li><a href="#disconnect20the20authorized20clients0a3ca20id3ddisconnect20the20authorized20clients3e203ca3e">Disconnect the Authorized Clients
+</a><a id="Disconnect" the="" authorized="" clients=""> </a></li><li><a href="#edit20local20user0a3ca20id3dedit20local20user3e203ca3e">Edit Local User
+</a><a id="Edit" local="" user=""> </a></li><li><a href="#edit20an20operator0a3ca20id3dedit20an20operator3e203ca3e">Edit an Operator
+</a><a id="Edit" an="" operator=""> </a></li><li><a href="#add20new20local20user0a3ca20id3dadd20new20local20user3e203ca3e">Add New Local User
+</a><a id="Add" new="" local="" user=""> </a></li><li><a href="#extend20the20valid20period20of20the20authorized20client0a3ca20id3dextend20the20valid20period20of20the20authorized20client3e203ca3e">Extend the Valid Period of the Authorized Client
+</a><a id="Extend" the="" valid="" period="" of="" authorized="" client=""> </a></li><li><a href="#get20the20information20of20a20single20operator0a3ca20id3dget20the20information20of20a20single20operator3e203ca3e">Get the Information of a Single Operator
+</a><a id="Get" the="" information="" of="" a="" single="" operator=""> </a></li><li><a href="#get20the20information20of20a20single20local20user0a3ca20id3dget20the20information20of20a20single20local20user3e203ca3e">Get the Information of a single Local User
+</a><a id="Get" the="" information="" of="" a="" single="" local="" user=""> </a></li><li><a href="#get20the20information20of20a20single20voucher0a3ca20id3dget20the20information20of20a20single20voucher3e203ca3e">Get the Information of a single Voucher
+</a><a id="Get" the="" information="" of="" a="" single="" voucher=""> </a></li><li><a href="#get20the20information20of20the20operator20that20has20logged20in0a3ca20id3dget20the20information20of20the20operator20that20has20logged20in3e203ca3e">Get the Information of the Operator that has Logged in
+</a><a id="Get" the="" information="" of="" operator="" that="" has="" logged="" in=""> </a></li><li><a href="#get20the20list20of20authorized20clients0a3ca20id3dget20the20list20of20authorized20clients3e203ca3e">Get the List of Authorized Clients
+</a><a id="Get" the="" list="" of="" authorized="" clients=""> </a></li><li><a href="#get20the20list20of20local20users0a3ca20id3dget20the20list20of20local20users3e203ca3e">Get the List of Local Users
+</a><a id="Get" the="" list="" of="" local="" users=""> </a></li><li><a href="#get20the20list20of20operators0a3ca20id3dget20the20list20of20operators3e203ca3e">Get the List of Operators
+</a><a id="Get" the="" list="" of="" operators=""> </a></li><li><a href="#get20the20list20of20vouchers0a3ca20id3dget20the20list20of20vouchers3e203ca3e">Get the List of Vouchers
+</a><a id="Get" the="" list="" of="" vouchers=""> </a></li><li><a href="#import20local20users20into20the20site0a3ca20id3dimport20local20users20into20the20site3e203ca3e">Import Local Users into the Site
+</a><a id="Import" local="" users="" into="" the="" site=""> </a></li><li><a href="#receive20clients2720authentication20information20from20external20portal20server0a3ca20id3dreceive20clients2720authentication20information20from20external20portal20server3e203ca3e">Receive Clients' Authentication Information from External Portal Server
+</a><a id="Receive" clients'="" authentication="" information="" from="" external="" portal="" server=""> </a></li><li><a href="#reset20the20mac20address20bound20with20the20local20user2028dynamic20binding290a3ca20id3dreset20the20mac20address20bound20with20the20local20user2028dynamic20binding293e203ca3e">Reset the MAC Address Bound with the Local User (Dynamic Binding)
+</a><a id="Reset" the="" mac="" address="" bound="" with="" local="" user="" (dynamic="" binding)=""> </a></li><li><a href="#use20an20operator20account20to20log20in20to20the20hotspot20manager20system0a3ca20id3duse20an20operator20account20to20log20in20to20the20hotspot20manager20system3e203ca3e">Use an Operator Account to Log In to the Hotspot Manager System
+</a><a id="Use" an="" operator="" account="" to="" log="" in="" the="" hotspot="" manager="" system=""> </a></li></ul></li><li><a href="#insight">Insight</a><ul><li><a href="#delete20a20client0a3ca20id3ddelete20a20client3e203ca3e">Delete a Client
+</a><a id="Delete" a="" client=""> </a></li><li><a href="#get20the20list20of20rogue20aps0a3ca20id3dget20the20list20of20rogue20aps3e203ca3e">Get the List of Rogue APs
+</a><a id="Get" the="" list="" of="" rogue="" aps=""> </a></li><li><a href="#get20the20list20of20the20known20clients200a3ca20id3dget20the20list20of20the20known20clients203e203ca3e">Get the List of the Known Clients 
+</a><a id="Get" the="" list="" of="" known="" clients=""> </a></li><li><a href="#start20to20scan20rogue20aps0a3ca20id3dstart20to20scan20rogue20aps3e203ca3e">Start to Scan Rogue APs
+</a><a id="Start" to="" scan="" rogue="" aps=""> </a></li></ul></li><li><a href="#log">Log</a><ul><li><a href="#archive20all20alert20logs20in20the20current20site0a3ca20id3darchive20all20alert20logs20in20the20current20site3e203ca3e">Archive All Alert Logs in the Current Site
+</a><a id="Archive" all="" alert="" logs="" in="" the="" current="" site=""> </a></li><li><a href="#archive20an20alert20log20entry200a3ca20id3darchive20an20alert20log20entry203e203ca3e">Archive an Alert Log Entry 
+</a><a id="Archive" an="" alert="" log="" entry=""> </a></li><li><a href="#change20the20notification20configurations0a3ca20id3dchange20the20notification20configurations3e203ca3e">Change the Notification Configurations
+</a><a id="Change" the="" notification="" configurations=""> </a></li><li><a href="#get20the20list20of20the20alert20logs0a3ca20id3dget20the20list20of20the20alert20logs3e203ca3e">Get the List of the Alert Logs
+</a><a id="Get" the="" list="" of="" alert="" logs=""> </a></li><li><a href="#get20the20list20of20the20alert20logs20in20batch0a3ca20id3dget20the20list20of20the20alert20logs20in20batch3e203ca3e">Get the List of the Alert Logs in Batch
+</a><a id="Get" the="" list="" of="" alert="" logs="" in="" batch=""> </a></li><li><a href="#get20the20list20of20the20event20log0a3ca20id3dget20the20list20of20the20event20log3e203ca3e">Get the List of the Event Log
+</a><a id="Get" the="" list="" of="" event="" log=""> </a></li><li><a href="#get20the20list20of20the20event20logs20in20batch0a3ca20id3dget20the20list20of20the20event20logs20in20batch3e203ca3e">Get the List of the Event Logs in Batch
+</a><a id="Get" the="" list="" of="" event="" logs="" in="" batch=""> </a></li><li><a href="#get20the20number20of20the20alert20logs0a3ca20id3dget20the20number20of20the20alert20logs3e203ca3e">Get the Number of the Alert Logs
+</a><a id="Get" the="" number="" of="" alert="" logs=""> </a></li><li><a href="#reset20all20notification20configurations20in20the20current20site20to20the20default0a3ca20id3dreset20all20notification20configurations20in20the20current20site20to20the20default3e203ca3e">Reset All Notification Configurations in the Current Site to the Default
+</a><a id="Reset" all="" notification="" configurations="" in="" the="" current="" site="" to="" default=""> </a></li><li><a href="#view20the20notification20configurations0a3ca20id3dview20the20notification20configurations3e203ca3e">View the Notification Configurations
+</a><a id="View" the="" notification="" configurations=""> </a></li></ul></li><li><a href="#settings-authentication28radiusprofiles29">Settings-Authentication(RadiusProfiles)</a><ul><li><a href="#add20a20new20radius20profile0a3ca20id3dadd20a20new20radius20profile3e203ca3e">Add a New RADIUS Profile
+</a><a id="Add" a="" new="" radius="" profile=""> </a></li><li><a href="#delete20radius20profile0a3ca20id3ddelete20radius20profile3e203ca3e">Delete RADIUS Profile
+</a><a id="Delete" radius="" profile=""> </a></li><li><a href="#edit20the20radius20profile0a3ca20id3dedit20the20radius20profile3e203ca3e">Edit the RADIUS Profile
+</a><a id="Edit" the="" radius="" profile=""> </a></li><li><a href="#query20radius20profile0a3ca20id3dquery20radius20profile3e203ca3e">Query RADIUS Profile
+</a><a id="Query" radius="" profile=""> </a></li></ul></li><li><a href="#settings-authentication28macauth29">Settings-Authentication(MacAuth)</a><ul><li><a href="#edit20the20configurations20of20the20mac-based20authentication0a3ca20id3dedit20the20configurations20of20the20mac-based20authentication3e203ca3e">Edit the Configurations of the MAC-Based Authentication
+</a><a id="Edit" the="" configurations="" of="" mac-based="" authentication=""> </a></li><li><a href="#get20the20configurations20of20the20mac-based20authentication0a3ca20id3dget20the20configurations20of20the20mac-based20authentication3e203ca3e">Get the Configurations of the MAC-Based Authentication
+</a><a id="Get" the="" configurations="" of="" mac-based="" authentication=""> </a></li><li><a href="#get20the20list20of20ssids20supporting20mac-based20authentication20in20all20the20wlan20groups20of20the20site0a3ca20id3dget20the20list20of20ssids20supporting20mac-based20authentication20in20all20the20wlan20groups20of20the20site3e203ca3e">Get the List of SSIDs Supporting MAC-Based Authentication in All the WLAN Groups of the Site
+</a><a id="Get" the="" list="" of="" ssids="" supporting="" mac-based="" authentication="" in="" all="" wlan="" groups="" site=""> </a></li></ul></li><li><a href="#settings-controller">Settings-Controller</a><ul><li><a href="#delete20https20certificate0a3ca20id3ddelete20https20certificate3e203ca3e">Delete HTTPS Certificate
+</a><a id="Delete" https="" certificate=""> </a></li><li><a href="#edit20the20configurations20of20history20data20retention0a3ca20id3dedit20the20configurations20of20history20data20retention3e203ca3e">Edit the Configurations of History Data Retention
+</a><a id="Edit" the="" configurations="" of="" history="" data="" retention=""> </a></li><li><a href="#edit20the20configurations20of20mail20server0a3ca20id3dedit20the20configurations20of20mail20server3e203ca3e">Edit the Configurations of Mail Server
+</a><a id="Edit" the="" configurations="" of="" mail="" server=""> </a></li><li><a href="#edit20the20configurations20of20the20controller0a3ca20id3dedit20the20configurations20of20the20controller3e203ca3e">Edit the Configurations of the Controller
+</a><a id="Edit" the="" configurations="" of="" controller=""> </a></li><li><a href="#get20controller20settings0a3ca20id3dget20controller20settings3e203ca3e">Get Controller Settings
+</a><a id="Get" controller="" settings=""> </a></li><li><a href="#get20the20configurations20of20history20data20retention0a3ca20id3dget20the20configurations20of20history20data20retention3e203ca3e">Get the Configurations of History Data Retention
+</a><a id="Get" the="" configurations="" of="" history="" data="" retention=""> </a></li><li><a href="#get20the20configurations20of20mail20server0a3ca20id3dget20the20configurations20of20mail20server3e203ca3e">Get the Configurations of Mail Server
+</a><a id="Get" the="" configurations="" of="" mail="" server=""> </a></li><li><a href="#send20test20email0a3ca20id3dsend20test20email3e203ca3e">Send Test Email
+</a><a id="Send" test="" email=""> </a></li><li><a href="#upload20the20https20certificate0a3ca20id3dupload20the20https20certificate3e203ca3e">Upload the HTTPS Certificate
+</a><a id="Upload" the="" https="" certificate=""> </a></li></ul></li><li><a href="#settings-network20security">Settings-Network Security</a><ul><li><a href="#edit20the20configurations20of20attack20defense0a3ca20id3dedit20the20configurations20of20attack20defense3e203ca3e">Edit the Configurations of Attack Defense
+</a><a id="Edit" the="" configurations="" of="" attack="" defense=""> </a></li><li><a href="#create20new20acl20rules0a3ca20id3dcreate20new20acl20rules3e203ca3e">Create New ACL Rules
+</a><a id="Create" new="" acl="" rules=""> </a></li><li><a href="#delete20a20url20filtering20rule0a3ca20id3ddelete20a20url20filtering20rule3e203ca3e">Delete a URL Filtering Rule
+</a><a id="Delete" a="" url="" filtering="" rule=""> </a></li><li><a href="#delete20an20acl20rule0a3ca20id3ddelete20an20acl20rule3e203ca3e">Delete an ACL Rule
+</a><a id="Delete" an="" acl="" rule=""> </a></li><li><a href="#edit20an20acl20rule200a3ca20id3dedit20an20acl20rule203e203ca3e">Edit an ACL Rule 
+</a><a id="Edit" an="" acl="" rule=""> </a></li><li><a href="#create20a20new20url20filtering20rule0a3ca20id3dcreate20a20new20url20filtering20rule3e203ca3e">Create a New URL Filtering Rule
+</a><a id="Create" a="" new="" url="" filtering="" rule=""> </a></li><li><a href="#edit20the20rules20of20url20filtering0a3ca20id3dedit20the20rules20of20url20filtering3e203ca3e">Edit the Rules of URL Filtering
+</a><a id="Edit" the="" rules="" of="" url="" filtering=""> </a></li><li><a href="#query20the20list20of20acl20rules0a3ca20id3dquery20the20list20of20acl20rules3e203ca3e">Query the List of ACL Rules
+</a><a id="Query" the="" list="" of="" acl="" rules=""> </a></li><li><a href="#query20the20list20of20url20filtering20rules0a3ca20id3dquery20the20list20of20url20filtering20rules3e203ca3e">Query the List of URL Filtering Rules
+</a><a id="Query" the="" list="" of="" url="" filtering="" rules=""> </a></li><li><a href="#reorder20the20sequence20of20acl20rules0a3ca20id3dreorder20the20sequence20of20acl20rules3e203ca3e">Reorder the Sequence of ACL Rules
+</a><a id="Reorder" the="" sequence="" of="" acl="" rules=""> </a></li><li><a href="#reorder20the20url20filtering20rules0a3ca20id3dreorder20the20url20filtering20rules3e203ca3e">Reorder the URL Filtering Rules
+</a><a id="Reorder" the="" url="" filtering="" rules=""> </a></li></ul></li><li><a href="#settings-maintenance">Settings-Maintenance</a><ul><li><a href="#query20the20status20of20controller0a3ca20id3dquery20the20status20of20controller3e203ca3e">Query the Status of Controller
+</a><a id="Query" the="" status="" of="" controller=""> </a></li></ul></li><li><a href="#settings-migration">Settings-Migration</a><ul><li><a href="#create20a20new20site20by20copying20an20existing20site0a3ca20id3dcreate20a20new20site20by20copying20an20existing20site3e203ca3e">Create a New Site by Copying an Existing Site
+</a><a id="Create" a="" new="" site="" by="" copying="" an="" existing=""> </a></li></ul></li><li><a href="#settings-profiles-group">Settings-Profiles-Group</a><ul><li><a href="#add20group0a3ca20id3dadd20group3e203ca3e">Add Group
+</a><a id="Add" group=""> </a></li><li><a href="#delete20group0a3ca20id3ddelete20group3e203ca3e">Delete Group
+</a><a id="Delete" group=""> </a></li><li><a href="#modify20group0a3ca20id3dmodify20group3e203ca3e">Modify Group
+</a><a id="Modify" group=""> </a></li><li><a href="#query20groups0a3ca20id3dquery20groups3e203ca3e">Query Groups
+</a><a id="Query" groups=""> </a></li><li><a href="#query20the20list20of20clients2028used20for20adding20mac20addresses290a3ca20id3dquery20the20list20of20clients2028used20for20adding20mac20addresses293e203ca3e">Query the List of Clients (Used for Adding Mac Addresses)
+</a><a id="Query" the="" list="" of="" clients="" (used="" for="" adding="" mac="" addresses)=""> </a></li><li><a href="#query20the20list20of20groups20based20on20group20type0a3ca20id3dquery20the20list20of20groups20based20on20group20type3e203ca3e">Query the List of Groups Based on Group Type
+</a><a id="Query" the="" list="" of="" groups="" based="" on="" group="" type=""> </a></li><li><a href="#upload20a20file20to20inport20mac20addresses20in20batches0a3ca20id3dupload20a20file20to20inport20mac20addresses20in20batches3e203ca3e">Upload a File to Inport Mac Addresses in Batches
+</a><a id="Upload" a="" file="" to="" inport="" mac="" addresses="" in="" batches=""> </a></li></ul></li><li><a href="#settings-profiles-timerange">Settings-Profiles-TimeRange</a><ul><li><a href="#add20time20range0a3ca20id3dadd20time20range3e203ca3e">Add Time Range
+</a><a id="Add" time="" range=""> </a></li><li><a href="#delete20time20range0a3ca20id3ddelete20time20range3e203ca3e">Delete Time Range
+</a><a id="Delete" time="" range=""> </a></li><li><a href="#modify20time20range0a3ca20id3dmodify20time20range3e203ca3e">Modify Time Range
+</a><a id="Modify" time="" range=""> </a></li><li><a href="#query20time20range0a3ca20id3dquery20time20range3e203ca3e">Query Time Range
+</a><a id="Query" time="" range=""> </a></li></ul></li><li><a href="#settings-service">Settings-Service</a><ul><li><a href="#create20a20reboot20schedule0a3ca20id3dcreate20a20reboot20schedule3e203ca3e">Create a Reboot Schedule
+</a><a id="Create" a="" reboot="" schedule=""> </a></li><li><a href="#delete20a20reboot20schedule0a3ca20id3ddelete20a20reboot20schedule3e203ca3e">Delete a Reboot Schedule
+</a><a id="Delete" a="" reboot="" schedule=""> </a></li><li><a href="#export20the20operation20log20of20controller0a3ca20id3dexport20the20operation20log20of20controller3e203ca3e">Export the Operation Log of Controller
+</a><a id="Export" the="" operation="" log="" of="" controller=""> </a></li><li><a href="#modify20ssh0a3ca20id3dmodify20ssh3e203ca3e">Modify SSH
+</a><a id="Modify" ssh=""> </a></li><li><a href="#modify20a20reboot20schedule0a3ca20id3dmodify20a20reboot20schedule3e203ca3e">Modify a Reboot Schedule
+</a><a id="Modify" a="" reboot="" schedule=""> </a></li><li><a href="#modify20the20settings20of20snmp0a3ca20id3dmodify20the20settings20of20snmp3e203ca3e">Modify the Settings of SNMP
+</a><a id="Modify" the="" settings="" of="" snmp=""> </a></li><li><a href="#query20ssh0a3ca20id3dquery20ssh3e203ca3e">Query SSH
+</a><a id="Query" ssh=""> </a></li><li><a href="#query20the20list20of20reboot20schedules0a3ca20id3dquery20the20list20of20reboot20schedules3e203ca3e">Query the List of Reboot Schedules
+</a><a id="Query" the="" list="" of="" reboot="" schedules=""> </a></li><li><a href="#query20the20settings20of20snmp0a3ca20id3dquery20the20settings20of20snmp3e203ca3e">Query the Settings of SNMP
+</a><a id="Query" the="" settings="" of="" snmp=""> </a></li></ul></li><li><a href="#site">Site</a><ul><li><a href="#add20a20new20site0a3ca20id3dadd20a20new20site3e203ca3e">Add a New Site
+</a><a id="Add" a="" new="" site=""> </a></li><li><a href="#create20a20new20scenario20for20a20site0a3ca20id3dcreate20a20new20scenario20for20a20site3e203ca3e">Create a New Scenario for a Site
+</a><a id="Create" a="" new="" scenario="" for="" site=""> </a></li><li><a href="#delete20a20site0a3ca20id3ddelete20a20site3e203ca3e">Delete a Site
+</a><a id="Delete" a="" site=""> </a></li><li><a href="#edit20the20site20configuration0a3ca20id3dedit20the20site20configuration3e203ca3e">Edit the Site Configuration
+</a><a id="Edit" the="" site="" configuration=""> </a></li><li><a href="#get20all20the20settings20of20a20site0a3ca20id3dget20all20the20settings20of20a20site3e203ca3e">Get All the Settings of a Site
+</a><a id="Get" all="" the="" settings="" of="" a="" site=""> </a></li><li><a href="#get20a20certain20piece20of20setting20information20of20a20site0a3ca20id3dget20a20certain20piece20of20setting20information20of20a20site3e203ca3e">Get a Certain Piece of Setting Information of a Site
+</a><a id="Get" a="" certain="" piece="" of="" setting="" information="" site=""> </a></li><li><a href="#get20the20list20of20all20scenarios0a3ca20id3dget20the20list20of20all20scenarios3e203ca3e">Get the List of All Scenarios
+</a><a id="Get" the="" list="" of="" all="" scenarios=""> </a></li><li><a href="#get20the20list20of20sites0a3ca20id3dget20the20list20of20sites3e203ca3e">Get the List of Sites
+</a><a id="Get" the="" list="" of="" sites=""> </a></li><li><a href="#switch20the20site0a3ca20id3dswitch20the20site3e203ca3e">Switch the Site
+</a><a id="Switch" the="" site=""> </a></li></ul></li><li><a href="#settings-wirelessnetwork-wlangroup">Settings-WirelessNetwork-WlanGroup</a><ul><li><a href="#add20a20new20wlan20group0a3ca20id3dadd20a20new20wlan20group3e203ca3e">Add a New WLAN Group
+</a><a id="Add" a="" new="" wlan="" group=""> </a></li><li><a href="#check20if20the20number20of20wlan20group20of20all20sites20exceeds20the20limit0a3ca20id3dcheck20if20the20number20of20wlan20group20of20all20sites20exceeds20the20limit3e203ca3e">Check if the Number of WLAN Group of All Sites Exceeds the Limit
+</a><a id="Check" if="" the="" number="" of="" wlan="" group="" all="" sites="" exceeds="" limit=""> </a></li><li><a href="#delete20the20wlan20group0a3ca20id3ddelete20the20wlan20group3e203ca3e">Delete the WLAN Group
+</a><a id="Delete" the="" wlan="" group=""> </a></li><li><a href="#edit20the20wlan20group0a3ca20id3dedit20the20wlan20group3e203ca3e">Edit the WLAN group
+</a><a id="Edit" the="" wlan="" group=""> </a></li><li><a href="#get20the20key20information20of20all20the20wlan20groups20and20ssids20in20the20specified20site0a3ca20id3dget20the20key20information20of20all20the20wlan20groups20and20ssids20in20the20specified20site3e203ca3e">Get the Key Information of All the WLAN Groups and SSIDs in the Specified Site
+</a><a id="Get" the="" key="" information="" of="" all="" wlan="" groups="" and="" ssids="" in="" specified="" site=""> </a></li><li><a href="#get20the20list20of20all20the20wlan20groups20and20corresponding20ssids20in20the20specified20site0a3ca20id3dget20the20list20of20all20the20wlan20groups20and20corresponding20ssids20in20the20specified20site3e203ca3e">Get the List of All the WLAN Groups and Corresponding SSIDs in the Specified Site
+</a><a id="Get" the="" list="" of="" all="" wlan="" groups="" and="" corresponding="" ssids="" in="" specified="" site=""> </a></li><li><a href="#get20the20wlan20group20list0a3ca20id3dget20the20wlan20group20list3e203ca3e">Get the WLAN Group List
+</a><a id="Get" the="" wlan="" group="" list=""> </a></li></ul></li><li><a href="#settings-wirelessnetwork-ssid">Settings-WirelessNetwork-SSID</a><ul><li><a href="#add20ssid0a3ca20id3dadd20ssid3e203ca3e">Add SSID
+</a><a id="Add" ssid=""> </a></li><li><a href="#delete20ssid0a3ca20id3ddelete20ssid3e203ca3e">Delete SSID
+</a><a id="Delete" ssid=""> </a></li><li><a href="#get20ssid20list0a3ca20id3dget20ssid20list3e203ca3e">Get SSID List
+</a><a id="Get" ssid="" list=""> </a></li><li><a href="#modify20ssid0a3ca20id3dmodify20ssid3e203ca3e">Modify SSID
+</a><a id="Modify" ssid=""> </a></li></ul></li><li><a href="#statistic">Statistic</a><ul><li><a href="#get20the20general20information20of20the20managed20devices20at20hourly20intervals0a3ca20id3dget20the20general20information20of20the20managed20devices20at20hourly20intervals3e203ca3e">Get the General Information of the Managed Devices at Hourly Intervals
+</a><a id="Get" the="" general="" information="" of="" managed="" devices="" at="" hourly="" intervals=""> </a></li><li><a href="#get20the20general20information20of20the20managed20devices20at20a205-minute20interval0a3ca20id3dget20the20general20information20of20the20managed20devices20at20a205-minute20interval3e203ca3e">Get the General Information of the Managed Devices at a 5-Minute Interval
+</a><a id="Get" the="" general="" information="" of="" managed="" devices="" at="" a="" 5-minute="" interval=""> </a></li><li><a href="#get20the20general20information20of20the20managed20devices20at20a20daily20intervals0a3ca20id3dget20the20general20information20of20the20managed20devices20at20a20daily20intervals3e203ca3e">Get the General Information of the Managed Devices at a Daily Intervals
+</a><a id="Get" the="" general="" information="" of="" managed="" devices="" at="" a="" daily="" intervals=""> </a></li></ul></li></ul></div>
+          <div id="right" class="content-right">
+           <h1 class="curproject-name"> SDNC_V4.1.5API Document(Omada_SDN_Controller_V4.1.5) </h1> 
+<h1 id="quick20setup">Quick Setup</h1>
+
+<h2 id="bind20a20tp-link20id20to20the20controller20as20the20cloud20main-administrator0a3ca20id3dbind20a20tp-link20id20to20the20controller20as20the20cloud20main-administrator3e203ca3e">Bind a TP-Link ID to the Controller as the Cloud Main-Administrator
+<a id="Bind" a="" tp-link="" to="" the="" controller="" as="" cloud="" main-administrator=""> </a></h2>
+
+<h3 id="">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/anon/cmd/cloud/bind</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bind a TP-Link ID to the controller as the Cloud Main-Administrator 
+during the quick setup process. The API will be not available after the 
+quick setup is done.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="check20initialization20status0a3ca20id3dcheck20initialization20status3e203ca3e">Check Initialization Status
+<a id="Check" initialization="" status=""> </a></h2>
+
+<h3 id="-4">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/anon/initialization</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Check if the controller has finished quick setup.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<h2 id="check20the20status20of20cloud20user0a3ca20id3dcheck20the20status20of20cloud20user3e203ca3e">Check the Status of Cloud User
+<a id="Check" the="" status="" of="" cloud="" user=""> </a></h2>
+
+<h3 id="-7">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/anon/cloud/status</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Check the status of Cloud User during the quick setup process. The API will be not available after the quick setup is done.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<h2 id="edit20the20cloud20access20function0a3ca20id3dedit20the20cloud20access20function3e203ca3e">Edit the Cloud Access function
+<a id="Edit" the="" cloud="" access="" function=""> </a></h2>
+
+<h3 id="-10">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/anon/cloud/status</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enable or disable Cloud Access during the quick setup process. The API will be not available after the quick setup is done.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="get20basic20information20of20the20controller200a3ca20id3dget20basic20information20of20the20controller203e203ca3e">Get Basic Information of the Controller 
+<a id="Get" basic="" information="" of="" the="" controller=""> </a></h2>
+
+<h3 id="-13">Basic Information</h3>
+<p><strong>Path：</strong> /api/info</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get basic information of the controller, including controller type and version.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<h2 id="get20controller20information20during20quick20setup20process0a3ca20id3dget20controller20information20during20quick20setup20process3e203ca3e">Get Controller Information During Quick Setup Process
+<a id="Get" controller="" information="" during="" quick="" setup="" process=""> </a></h2>
+
+<h3 id="-16">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/anon/controllerInfo</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get controller information, including controller name, region and 
+time zone during the quick setup process. The API will be not available 
+after the quick setup is done.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<h2 id="get20the20list20of20pending20devices2028factory20default2920without20login0a3ca20id3dget20the20list20of20pending20devices2028factory20default2920without20login3e203ca3e">Get the List of Pending Devices (Factory Default) Without Login
+<a id="Get" the="" list="" of="" pending="" devices="" (factory="" default)="" without="" login=""> </a></h2>
+
+<h3 id="-19">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/anon/devices</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the list of devices in pending status during the quick setup 
+process. The API will be not available after the quick setup is done.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<h2 id="get20the20type20of20the20controller0a3ca20id3dget20the20type20of20the20controller3e203ca3e">Get the Type of the Controller
+<a id="Get" the="" type="" of="" controller=""> </a></h2>
+
+<h3 id="-22">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/anon/controllerType</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the type of the controller when the controller begins running.The API will be not available after the quick setup is done.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<h2 id="unbind20the20tp-link20id20to20the20controller200a3ca20id3dunbind20the20tp-link20id20to20the20controller203e203ca3e">Unbind the TP-Link ID to the Controller 
+<a id="Unbind" the="" tp-link="" to="" controller=""> </a></h2>
+
+<h3 id="-25">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/anon/cmd/cloud/unbind</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unbind the TP-Link ID to the controller during the quick setup 
+process. The API will be not available after the quick setup is done.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="wizard20configuration0a3ca20id3dwizard20configuration3e203ca3e">Wizard Configuration
+<a id="Wizard" configuration=""> </a></h2>
+
+<h3 id="-28">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/anon/cmd/wizardConfig</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This API is used to quickly set up the controller when initially 
+logging in to the controller. The API will be not available after the 
+quick setup is done.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h1 id="login">Login</h1>
+
+<h2 id="check20the20status20of20login0a3ca20id3dcheck20the20status20of20login3e203ca3e">Check the Status of Login
+<a id="Check" the="" status="" of="" login=""> </a></h2>
+
+<h3 id="-31">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/loginStatus</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Check if any user has logged in to controller.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<h2 id="log20in200a3ca20id3dlog20in203e203ca3e">Log In 
+<a id="Log" in=""> </a></h2>
+
+<h3 id="-34">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/login</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The API is used to log in to the controller.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="log20out0a3ca20id3dlog20out3e203ca3e">Log Out
+<a id="Log" out=""> </a></h2>
+
+<h3 id="-37">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/logout</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The API is used to log out of the controller.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="reset20the20password0a3ca20id3dreset20the20password3e203ca3e">Reset the Password
+<a id="Reset" the="" password=""> </a></h2>
+
+<h3 id="-40">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/resetPassword</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reset the password for the login account via the link in the email for reseting password.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="specify20the20email20address20for20resetting20the20password0a3ca20id3dspecify20the20email20address20for20resetting20the20password3e203ca3e">Specify the Email Address for Resetting the Password
+<a id="Specify" the="" email="" address="" for="" resetting="" password=""> </a></h2>
+
+<h3 id="-43">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sendResetEmail</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Specify the email address for resetting the password when logging in to the management interface.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h1 id="admin">Admin</h1>
+
+<h2 id="20delete20an20admin20account0a3ca20id3d20delete20an20admin20account3e203ca3e"> Delete an Admin Account
+<a id="Delete" an="" admin="" account=""> </a></h2>
+
+<h3 id="-46">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/users/{userID}</p>
+<p><strong>Method：</strong> DELETE</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delete an Admin Account of the controller.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="add20a20new20admin20account0a3ca20id3dadd20a20new20admin20account3e203ca3e">Add a New Admin Account
+<a id="Add" a="" new="" admin="" account=""> </a></h2>
+
+<h3 id="-49">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/users</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The API is used to add a new Admin account.<br data-tomark-pass="">Omada
+ SDN Controller offers three levels of access available for users: 
+Master Administrator, Administrator, and Viewer. Because the controller 
+can be accessed both locally and via Cloud Access, users can be further 
+grouped into local users and cloud users. That is, there are six types 
+of users: Main Administrator, Cloud Main-Administrator, Administrator, 
+Cloud Administrator, Viewer, and Cloud Viewer.<br data-tomark-pass="">The
+ account who first launches the controller during the quick setup 
+process will be the Master Administrator and cannot be changed and 
+deleted. And with Cloud Access enabled, the account who first bound to 
+the controller will be the Cloud Main-Administrator.To add a new Admin 
+account as the Administrator, Cloud Administrator, Viewer, and Cloud 
+Viewer, you should use the API “Add a New Admin Account”. Note that 
+Cloud Administrator and Cloud Viewer can be created only when the users 
+have received the invitation emails.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="edit20an20admin20account0a3ca20id3dedit20an20admin20account3e203ca3e">Edit an Admin Account
+<a id="Edit" an="" admin="" account=""> </a></h2>
+
+<h3 id="-52">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/users/{userID}</p>
+<p><strong>Method：</strong> PATCH</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Edit the Information of an Admin Account</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20information20of20the20current20admin20account0a3ca20id3dget20information20of20the20current20admin20account3e203ca3e">Get Information of the Current Admin Account
+<a id="Get" information="" of="" the="" current="" admin="" account=""> </a></h2>
+
+<h3 id="-55">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/users/current</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get information of the current Admin account.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<h2 id="get20the20list20of20admin20accounts0a3ca20id3dget20the20list20of20admin20accounts3e203ca3e">Get the List of Admin Accounts
+<a id="Get" the="" list="" of="" admin="" accounts=""> </a></h2>
+
+<h3 id="-58">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/users</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the list of Admin accounts of the controller.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<h2 id="pop-up20window20for20verfication20when20editing20admin20account0a3ca20id3dpop-up20window20for20verfication20when20editing20admin20account3e203ca3e">Pop-up Window for Verfication When Editing Admin Account
+<a id="Pop-up" window="" for="" verfication="" when="" editing="" admin="" account=""> </a></h2>
+
+<h3 id="-61">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/cmd/users/{userID}/confirm</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>When the controller user wants to edit the infomation of its own account , a window will pop up for verification.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="resend20an20invitation20mail0a3ca20id3dresend20an20invitation20mail3e203ca3e">Resend an Invitation Mail
+<a id="Resend" an="" invitation="" mail=""> </a></h2>
+
+<h3 id="-64">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/cmd/users/{userID}/reinvite</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>It is used to resend an invitation email to the cloud user who does not accept the earlier invitation.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h1 id="ap20information20and20settings">AP Information and Settings</h1>
+
+<h2 id="change20the20uplink20ap0a3ca20id3dchange20the20uplink20ap3e203ca3e">Change the Uplink AP
+<a id="Change" the="" uplink="" ap=""> </a></h2>
+
+<h3 id="-67">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/eaps/{deviceMac}/mesh/link</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Change the uplink AP for a mesh AP.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="check20if20the20candidate20uplink20ap20is20valid0a3ca20id3dcheck20if20the20candidate20uplink20ap20is20valid3e203ca3e">Check If the Candidate Uplink AP is Valid
+<a id="Check" if="" the="" candidate="" uplink="" ap="" is="" valid=""> </a></h2>
+
+<h3 id="-70">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/eaps/{deviceMac}/mesh/validParent</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Before changing the uplink AP for your AP, check if the new uplink 
+AP is valid. Confirm the operation when the total number of hops exceeds
+ the limit.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20channel20information20supported20by20an20ap0a3ca20id3dget20the20channel20information20supported20by20an20ap3e203ca3e">Get the Channel Information Supported by an AP
+<a id="Get" the="" channel="" information="" supported="" by="" an="" ap=""> </a></h2>
+
+<h3 id="-73">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/eaps/{deviceMac}/channelInfo</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the details of the information channel supported by a specified AP.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20channel20information20of20a20site0a3ca20id3dget20the20channel20information20of20a20site3e203ca3e">Get the Channel Information of a Site
+<a id="Get" the="" channel="" information="" of="" a="" site=""> </a></h2>
+
+<h3 id="-76">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/info/channelInfo</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the channel information supported by the country or region where the site is located.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20details20of20an20ap0a3ca20id3dget20the20details20of20an20ap3e203ca3e">Get the Details of an AP
+<a id="Get" the="" details="" of="" an="" ap=""> </a></h2>
+
+<h3 id="-79">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/eaps/{mac}</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the detailed information of the specified AP on a certain site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="get20the20mesh20information20of20an20ap0a3ca20id3dget20the20mesh20information20of20an20ap3e203ca3e">Get the Mesh Information of an AP
+<a id="Get" the="" mesh="" information="" of="" an="" ap=""> </a></h2>
+
+<h3 id="-82">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/eaps/{deviceMac}/mesh/stastic</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the mesh information of an AP, including the link status, the uplink AP, downlink APs and the candidate uplink APs.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="modify20the20settings20of20aps20in20batches0a3ca20id3dmodify20the20settings20of20aps20in20batches3e203ca3e">Modify the Settings of APs in Batches
+<a id="Modify" the="" settings="" of="" aps="" in="" batches=""> </a></h2>
+
+<h3 id="-85">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/eaps/config</p>
+<p><strong>Method：</strong> PATCH</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modify the settings of APs in batches.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="modify20the20settings20of20an20ap0a3ca20id3dmodify20the20settings20of20an20ap3e203ca3e">Modify the Settings of an AP
+<a id="Modify" the="" settings="" of="" an="" ap=""> </a></h2>
+
+<h3 id="-88">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/eaps/{apMac}</p>
+<p><strong>Method：</strong> PATCH</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modify the settings of a specified AP in a certain site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="move20devices20to20other20sites0a3ca20id3dmove20devices20to20other20sites3e203ca3e">Move Devices to Other Sites
+<a id="Move" devices="" to="" other="" sites=""> </a></h2>
+
+<h3 id="-91">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/eaps/move</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Move devices to other sites.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="scan20the20available20candidate20uplink20ap0a3ca20id3dscan20the20available20candidate20uplink20ap3e203ca3e">Scan the Available Candidate Uplink AP
+<a id="Scan" the="" available="" candidate="" uplink="" ap=""> </a></h2>
+
+<h3 id="-94">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/eaps/{deviceMac}/mesh/scan</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Allow an AP to scan the available candidate uplink AP.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="clients">Clients</h1>
+
+<h2 id="20get20the20list20of20a20client27s20connection20history0a3ca20id3d20get20the20list20of20a20client27s20connection20history3e203ca3e"> Get the List of a client's Connection History
+<a id="Get" the="" list="" of="" a="" client's="" connection="" history=""> </a></h2>
+
+<h3 id="-97">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/clientHistory/{clientMac}</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the list of a client's connection history.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="20manage20a20single20client0a3ca20id3d20manage20a20single20client3e203ca3e"> Manage a Single Client
+<a id="Manage" a="" single="" client=""> </a></h2>
+
+<h3 id="-100">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/clients/{clientMac}</p>
+<p><strong>Method：</strong> PATCH</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manage the selected client.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="authorize20clients0a3ca20id3dauthorize20clients3e203ca3e">Authorize Clients
+<a id="Authorize" clients=""> </a></h2>
+
+<h3 id="-103">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/clients/{clientMac}/auth</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This API is used for the administrator to manually authorize the client that has not passed the portal authentication.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="block20clients0a3ca20id3dblock20clients3e203ca3e">Block Clients
+<a id="Block" clients=""> </a></h2>
+
+<h3 id="-106">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/clients/{clientMac}/block</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This API is used for the administrator to block the client in the chosen site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20information20of20the20client0a3ca20id3dget20the20information20of20the20client3e203ca3e">Get the Information of the Client
+<a id="Get" the="" information="" of="" client=""> </a></h2>
+
+<h3 id="-109">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/clients/{clientMac}</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the information of the selected client.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="get20the20list20of20online20clients0a3ca20id3dget20the20list20of20online20clients3e203ca3e">Get the List of Online Clients
+<a id="Get" the="" list="" of="" online="" clients=""> </a></h2>
+
+<h3 id="-112">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/clients</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the list of online clients.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="manage20multiple20clients20in20batch0a3ca20id3dmanage20multiple20clients20in20batch3e203ca3e">Manage Multiple Clients In Batch
+<a id="Manage" multiple="" clients="" in="" batch=""> </a></h2>
+
+<h3 id="-115">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/clients/config</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manage multiple clients in batch.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="reconnect20clients0a3ca20id3dreconnect20clients3e203ca3e">Reconnect Clients
+<a id="Reconnect" clients=""> </a></h2>
+
+<h3 id="-118">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/clients/{clientMac}/reconnect</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This API is used for the administrator to reconnect the wireless client to the wireless network.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="unauthorize20clients0a3ca20id3dunauthorize20clients3e203ca3e">Unauthorize Clients
+<a id="Unauthorize" clients=""> </a></h2>
+
+<h3 id="-121">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/clients/{clientMac}/unauth</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This API is used for the administrator to unauthorize the client that has passed the portal authentication.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="unblock20clients0a3ca20id3dunblock20clients3e203ca3e">Unblock Clients
+<a id="Unblock" clients=""> </a></h2>
+
+<h3 id="-124">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/clients/{clientMac}/unblock</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unlock the clients that have been blocked.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h1 id="dashboard-ui">Dashboard-UI</h1>
+
+<h2 id="get20the20overview20diagram20of20network20topology0a3ca20id3dget20the20overview20diagram20of20network20topology3e203ca3e">Get the Overview Diagram of Network Topology
+<a id="Get" the="" overview="" diagram="" of="" network="" topology=""> </a></h2>
+
+<h3 id="-127">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/dashboard/overviewDiagram</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to get the overview diagram of network topology.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="get20the20snapshot20of20controller0a3ca20id3dget20the20snapshot20of20controller3e203ca3e">Get the Snapshot of Controller
+<a id="Get" the="" snapshot="" of="" controller=""> </a></h2>
+
+<h3 id="-130">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/dashboard/snapshot</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to get the snapshot of Controller, which 
+covers site number, country number, device number, admin user number, 
+cloud access binding status, alert number.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h1 id="dashboard-client">Dashboard-Client</h1>
+
+<h2 id="get20the20frequency20distribution20of20clients0a3ca20id3dget20the20frequency20distribution20of20clients3e203ca3e">Get the Frequency Distribution of Clients
+<a id="Get" the="" frequency="" distribution="" of="" clients=""> </a></h2>
+
+<h3 id="-133">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/dashboard/clientsFreqDistribution</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to get the client numbers on the dashboard and the distribution of clients among bands.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="get20the20information20about20association20failures20and20the20corresponding20ap20list0a3ca20id3dget20the20information20about20association20failures20and20the20corresponding20ap20list3e203ca3e">Get the Information about Association Failures and the Corresponding AP List
+<a id="Get" the="" information="" about="" association="" failures="" and="" corresponding="" ap="" list=""> </a></h2>
+
+<h3 id="-136">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/dashboard/associationFailures</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to get the infomation about association failures and the corresponding AP list.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="get20the20information20about20client20activities0a3ca20id3dget20the20information20about20client20activities3e203ca3e">Get the Information about Client Activities
+<a id="Get" the="" information="" about="" client="" activities=""> </a></h2>
+
+<h3 id="-139">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/dashboard/clientActivity</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to get the information about client 
+activities, including new clients, connected clients, and disconnected 
+clients in each period.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20longest20uptime20client200a3ca20id3dget20the20longest20uptime20client203e203ca3e">Get the Longest Uptime Client 
+<a id="Get" the="" longest="" uptime="" client=""> </a></h2>
+
+<h3 id="-142">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/dashboard/longestUptime</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to get the information about the top 15 longest uptime client.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="get20the20most20active20clients0a3ca20id3dget20the20most20active20clients3e203ca3e">Get the Most Active Clients
+<a id="Get" the="" most="" active="" clients=""> </a></h2>
+
+<h3 id="-145">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/dashboard/activeClients</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to get the information about the top 15 most active clients which have the largest traffic.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h1 id="dashboard-network">Dashboard-Network</h1>
+
+<h2 id="get20the20alerts0a3ca20id3dget20the20alerts3e203ca3e">Get the Alerts
+<a id="Get" the="" alerts=""> </a></h2>
+
+<h3 id="-148">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/dashboard/alerts</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to get the top 5 alerts in a specific site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="get20the20distribution20of20aps20and20clients20among20channels20and20channel20usage0a3ca20id3dget20the20distribution20of20aps20and20clients20among20channels20and20channel20usage3e203ca3e">Get the Distribution of APs and Clients among Channels and Channel Usage
+<a id="Get" the="" distribution="" of="" aps="" and="" clients="" among="" channels="" channel="" usage=""> </a></h2>
+
+<h3 id="-151">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/dashboard/channels</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to get the distribution of APs and clients among channels and channel usage.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="get20the20distribution20of20clients0a3ca20id3dget20the20distribution20of20clients3e203ca3e">Get the Distribution of Clients
+<a id="Get" the="" distribution="" of="" clients=""> </a></h2>
+
+<h3 id="-154">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/dashboard/clientsDistribution</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to get the distribution of clients among switches, EAPs, and different bands for EAPs.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="get20the20distribution20of20traffic0a3ca20id3dget20the20distribution20of20traffic3e203ca3e">Get the Distribution of Traffic
+<a id="Get" the="" distribution="" of="" traffic=""> </a></h2>
+
+<h3 id="-157">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/dashboard/trafficDistribution</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to get the traffic distribution of APs and switches in a site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20most20active20eaps0a3ca20id3dget20the20most20active20eaps3e203ca3e">Get the Most Active EAPs
+<a id="Get" the="" most="" active="" eaps=""> </a></h2>
+
+<h3 id="-160">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/dashboard/activeAps</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to get the information about the top 15 most active APs which have the largest traffic.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20most20active20switches0a3ca20id3dget20the20most20active20switches3e203ca3e">Get the Most Active Switches
+<a id="Get" the="" most="" active="" switches=""> </a></h2>
+
+<h3 id="-163">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/dashboard/activeSwitches</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to get the information about the top 15 most active switches which have the largest traffic.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20retry20rate2020dropped20rate0a3ca20id3dget20the20retry20rate2020dropped20rate3e203ca3e">Get the Retry Rate / Dropped Rate
+<a id="Get" the="" retry="" rate="" dropped=""> </a></h2>
+
+<h3 id="-166">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/dashboard/retryDroppedRate</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to get the retry rate / dropped rate of each AP in a specific period.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20traffic20activities0a3ca20id3dget20the20traffic20activities3e203ca3e">Get the Traffic Activities
+<a id="Get" the="" traffic="" activities=""> </a></h2>
+
+<h3 id="-169">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/dashboard/trafficActivities</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to get the traffic activities of APs and switches in a site during a specific period.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20wifi20summary0a3ca20id3dget20the20wifi20summary3e203ca3e">Get the Wifi Summary
+<a id="Get" the="" wifi="" summary=""> </a></h2>
+
+<h3 id="-172">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/dashboard/wifiSummary</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to get an overview of Wi-Fi in a site, 
+covering AP numbers, wireless client numbers, channel usage, and total 
+traffic.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h1 id="devices">Devices</h1>
+
+<h2 id="adopt20devices20of20certain20class20in20batch0a3ca20id3dadopt20devices20of20certain20class20in20batch3e203ca3e">Adopt Devices of Certain Class in Batch
+<a id="Adopt" devices="" of="" certain="" class="" in="" batch=""> </a></h2>
+
+<h3 id="-175">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/devices/batchAdopt</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to adopt devices of certain class in batch.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="adopt20a20device0a3ca20id3dadopt20a20device3e203ca3e">Adopt a Device
+<a id="Adopt" a="" device=""> </a></h2>
+
+<h3 id="-178">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/devices/adopt</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to adopt a device.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="locate20a20device0a3ca20id3dlocate20a20device3e203ca3e">Locate a Device
+<a id="Locate" a="" device=""> </a></h2>
+
+<h3 id="-181">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/devices/{deviceMac}/locate</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to locate a specific device. After the location process starts, the corresponding device's LED flashes.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="upload20the20upgrade20image20for20a20device0a3ca20id3dupload20the20upgrade20image20for20a20device3e203ca3e">Upload the Upgrade Image for a Device
+<a id="Upload" the="" upgrade="" image="" for="" a="" device=""> </a></h2>
+
+<h3 id="-184">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/files/sites/{siteKey}/device/upgrade</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to upload the upgrade image for a device.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="delete20the20upgrade20image20for20a20device0a3ca20id3ddelete20the20upgrade20image20for20a20device3e203ca3e">Delete the Upgrade Image for a Device
+<a id="Delete" the="" upgrade="" image="" for="" a="" device=""> </a></h2>
+
+<h3 id="-187">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/files/sites/{siteKey}/device/upgrade/{fileId}</p>
+<p><strong>Method：</strong> DELETE</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to delete the upgrade image which has been uploaded for a device.<br data-tomark-pass="">Related Interface: Upload the Upgrade Image for a Device</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="delete20a20tag0a3ca20id3ddelete20a20tag3e203ca3e">Delete a Tag
+<a id="Delete" a="" tag=""> </a></h2>
+
+<h3 id="-190">Basic Information</h3>
+<p><strong>Path：</strong> 	 /api/v2/sites/{siteKey}/tags/{id}</p>
+<p><strong>Method：</strong> DELETE</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to delete a tag for devices.<br data-tomark-pass="">Related Interface:&nbsp;Add Tags / Add Tag Group Members</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="cancel20online20rolling20upgrades20for20devices0a3ca20id3dcancel20online20rolling20upgrades20for20devices3e203ca3e">Cancel Online Rolling Upgrades for Devices
+<a id="Cancel" online="" rolling="" upgrades="" for="" devices=""> </a></h2>
+
+<h3 id="-193">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/devices/cancelRollingUpgrade</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to cancel online rolling upgrades for devices.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="upgrade20a20device20online0a3ca20id3dupgrade20a20device20online3e203ca3e">Upgrade a Device Online
+<a id="Upgrade" a="" device="" online=""> </a></h2>
+
+<h3 id="-196">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/devices/{mac}/onlineUpgrade</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to upgrade a specific device online.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="perform20online20rolling20upgrades20for20devices0a3ca20id3dperform20online20rolling20upgrades20for20devices3e203ca3e">Perform Online Rolling Upgrades for Devices
+<a id="Perform" online="" rolling="" upgrades="" for="" devices=""> </a></h2>
+
+<h3 id="-199">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/devices/onlineRollingUpgrade</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to perform online rolling upgrades for devices.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="force20provision20for20a20device0a3ca20id3dforce20provision20for20a20device3e203ca3e">Force Provision for a Device
+<a id="Force" provision="" for="" a="" device=""> </a></h2>
+
+<h3 id="-202">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/devices/{deviceMac}/forceProvision</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to force provision of all settings for a 
+device, and will lead to disconnection and reconnetion of the device.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="upgrade20a20device20manually0a3ca20id3dupgrade20a20device20manually3e203ca3e">Upgrade a Device Manually
+<a id="Upgrade" a="" device="" manually=""> </a></h2>
+
+<h3 id="-205">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/devices/upgrade</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to upgrade a device manually.<br data-tomark-pass="">Related Interface:&nbsp;Upload the Upgrade Image for a Device</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="forget20a20device0a3ca20id3dforget20a20device3e203ca3e">Forget a Device
+<a id="Forget" a="" device=""> </a></h2>
+
+<h3 id="-208">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/devices/{mac}/forget</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to forget a specific device.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="query20the20online20rolling20upgrade20status20of20devices20in20a20site0a3ca20id3dquery20the20online20rolling20upgrade20status20of20devices20in20a20site3e203ca3e">Query the Online Rolling Upgrade Status of Devices in a Site
+<a id="Query" the="" online="" rolling="" upgrade="" status="" of="" devices="" in="" a="" site=""> </a></h2>
+
+<h3 id="-211">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/devices/rollingUpgradeStatus</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to query the online rolling upgrade status of devices in a site.<br data-tomark-pass="">Related Interface: Perform Online Rolling Upgrades for Devices</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="query20the20online20upgrade20status20of20a20device20by20mac20address0a3ca20id3dquery20the20online20upgrade20status20of20a20device20by20mac20address3e203ca3e">Query the Online Upgrade Status of a Device by MAC Address
+<a id="Query" the="" online="" upgrade="" status="" of="" a="" device="" by="" mac="" address=""> </a></h2>
+
+<h3 id="-214">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey/devices/{deviceMac}}/onlineUpgrade/status</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to query the online upgrade status of a device by MAC address<br data-tomark-pass="">Related Interface: Upgrade a Device Online</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="add20tags2020add20tag20group20members200a3ca20id3dadd20tags2020add20tag20group20members203e203ca3e">Add Tags / Add Tag Group Members 
+<a id="Add" tags="" add="" tag="" group="" members=""> </a></h2>
+
+<h3 id="-217">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/tags</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to add tags to one or more devices.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20firmware20version20of20a20device0a3ca20id3dget20the20firmware20version20of20a20device3e203ca3e">Get the Firmware Version of a Device
+<a id="Get" the="" firmware="" version="" of="" a="" device=""> </a></h2>
+
+<h3 id="-220">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/devices/{mac}/firmware</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to get the firmware version of a specific device.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20list20of20the20devices20in20one20site0a3ca20id3dget20the20list20of20the20devices20in20one20site3e203ca3e">Get the List of the Devices in One Site
+<a id="Get" the="" list="" of="" devices="" in="" one="" site=""> </a></h2>
+
+<h3 id="-223">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/devices</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to get the device list of a specific site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="query20the20upgrade20progress20of20a20device20by20mac20address0a3ca20id3dquery20the20upgrade20progress20of20a20device20by20mac20address3e203ca3e">Query the Upgrade Progress of a Device by MAC Address
+<a id="Query" the="" upgrade="" progress="" of="" a="" device="" by="" mac="" address=""> </a></h2>
+
+<h3 id="-226">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/devices/{deviceMac}/upgrade/status</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to query the upgrade progress of a device by MAC address.<br data-tomark-pass="">Related Interface: Upgrade a Device Manually</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="query20the20upgrade20progress20of20a20device20through20the20upgradeid0a3ca20id3dquery20the20upgrade20progress20of20a20device20through20the20upgradeid3e203ca3e">Query the Upgrade Progress of a Device through the UpgradeId
+<a id="Query" the="" upgrade="" progress="" of="" a="" device="" through="" upgradeid=""> </a></h2>
+
+<h3 id="-229">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/devices/upgrade/{upgradeId}/status</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to query the upgrade progress of a device through the upgradeId.<br data-tomark-pass="">Related Interface: Upgrade a Device Manually</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20list20of20tags20and20the20corresponding20devices0a3ca20id3dget20the20list20of20tags20and20the20corresponding20devices3e203ca3e">Get the List of Tags and the Corresponding Devices
+<a id="Get" the="" list="" of="" tags="" and="" corresponding="" devices=""> </a></h2>
+
+<h3 id="-232">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/tags</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to get the list of tags and the corresponding devices.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="reboot20a20device0a3ca20id3dreboot20a20device3e203ca3e">Reboot a Device
+<a id="Reboot" a="" device=""> </a></h2>
+
+<h3 id="-235">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/devices/{mac}/reboot</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>This interface is used to reboot a device. After rebooting, the device is reconnected.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="hotspot20interface">Hotspot Interface</h1>
+
+<h2 id="export20the20local20users20on20the20site0a3ca20id3dexport20the20local20users20on20the20site3e203ca3e">Export the Local users on the Site
+<a id="Export" the="" local="" users="" on="" site=""> </a></h2>
+
+<h3 id="-238">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/files/sites/{siteKey}/localusers</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Export the Local User(s) to files in the format of CSV or Excel.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="20get20the20information20of20the20selected20vouchers0a3ca20id3d20get20the20information20of20the20selected20vouchers3e203ca3e"> Get the Information of the Selected Vouchers
+<a id="Get" the="" information="" of="" selected="" vouchers=""> </a></h2>
+
+<h3 id="-241">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/vouchers/batch/print</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the detailed information of selected vouchers.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="add20new20vouchers0a3ca20id3dadd20new20vouchers3e203ca3e">Add New Vouchers
+<a id="Add" new="" vouchers=""> </a></h2>
+
+<h3 id="-244">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/vouchers</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add new vouchers.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="add20a20new20operator0a3ca20id3dadd20a20new20operator3e203ca3e">Add a New Operator
+<a id="Add" a="" new="" operator=""> </a></h2>
+
+<h3 id="-247">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/operators</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add a new operator account for Hotspot management on the site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="change20the20site20of20the20operator0a3ca20id3dchange20the20site20of20the20operator3e203ca3e">Change the Site of the Operator
+<a id="Change" the="" site="" of="" operator=""> </a></h2>
+
+<h3 id="-250">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/cmd/operators/{id}/switch</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Change the site of the operator account.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="check20the20login20status20of20the20operator0a3ca20id3dcheck20the20login20status20of20the20operator3e203ca3e">Check the Login Status of the Operator
+<a id="Check" the="" login="" status="" of="" operator=""> </a></h2>
+
+<h3 id="-253">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/loginStatus</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Check the login status of the operator account for Hotspot management.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="delete20expired20clients200a3ca20id3ddelete20expired20clients203e203ca3e">Delete Expired Clients 
+<a id="Delete" expired="" clients=""> </a></h2>
+
+<h3 id="-256">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/clients/{id}</p>
+<p><strong>Method：</strong> DELETE</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delete expired clients.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="delete20local20user0a3ca20id3ddelete20local20user3e203ca3e">Delete Local User
+<a id="Delete" local="" user=""> </a></h2>
+
+<h3 id="-259">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/localusers/{id}</p>
+<p><strong>Method：</strong> DELETE</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delete the selected Local User.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="delete20voucher0a3ca20id3ddelete20voucher3e203ca3e">Delete Voucher
+<a id="Delete" voucher=""> </a></h2>
+
+<h3 id="-262">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/vouchers/{id}</p>
+<p><strong>Method：</strong> DELETE</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delete the selected vouchers.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="delete20an20operator0a3ca20id3ddelete20an20operator3e203ca3e">Delete an Operator
+<a id="Delete" an="" operator=""> </a></h2>
+
+<h3 id="-265">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/operators/{id}</p>
+<p><strong>Method：</strong> DELETE</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delete the operator account for Hotspot management on the site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="delete20the20selected20vouchers0a3ca20id3ddelete20the20selected20vouchers3e203ca3e">Delete the Selected Vouchers
+<a id="Delete" the="" selected="" vouchers=""> </a></h2>
+
+<h3 id="-268">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/vouchers/batch/delete</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delete the selected vouchers.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="disconnect20the20authorized20clients0a3ca20id3ddisconnect20the20authorized20clients3e203ca3e">Disconnect the Authorized Clients
+<a id="Disconnect" the="" authorized="" clients=""> </a></h2>
+
+<h3 id="-271">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/cmd/clients/{id}/disconnect</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Disconnect the authorized client(s). When you disconnect an 
+authorized client, the client needs to be re-authenticated for the next 
+connection</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="edit20local20user0a3ca20id3dedit20local20user3e203ca3e">Edit Local User
+<a id="Edit" local="" user=""> </a></h2>
+
+<h3 id="-274">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/localusers/{id}</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Edit the selected Local Users.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="edit20an20operator0a3ca20id3dedit20an20operator3e203ca3e">Edit an Operator
+<a id="Edit" an="" operator=""> </a></h2>
+
+<h3 id="-277">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/operators/{id}</p>
+<p><strong>Method：</strong> PATCH</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Edit the operator account for Hotspot management on the site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="add20new20local20user0a3ca20id3dadd20new20local20user3e203ca3e">Add New Local User
+<a id="Add" new="" local="" user=""> </a></h2>
+
+<h3 id="-280">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/localusers</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add new Local Users.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="extend20the20valid20period20of20the20authorized20client0a3ca20id3dextend20the20valid20period20of20the20authorized20client3e203ca3e">Extend the Valid Period of the Authorized Client
+<a id="Extend" the="" valid="" period="" of="" authorized="" client=""> </a></h2>
+
+<h3 id="-283">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/cmd/clients/{id}/extend</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>extend the valid period of the authorized client. When the 
+authemtication expires, the valid period will be extended, which is 
+based on the customized period.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20information20of20a20single20operator0a3ca20id3dget20the20information20of20a20single20operator3e203ca3e">Get the Information of a Single Operator
+<a id="Get" the="" information="" of="" a="" single="" operator=""> </a></h2>
+
+<h3 id="-286">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/operators/{id}</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the information of an operator account for Hotspot management on the site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20information20of20a20single20local20user0a3ca20id3dget20the20information20of20a20single20local20user3e203ca3e">Get the Information of a single Local User
+<a id="Get" the="" information="" of="" a="" single="" local="" user=""> </a></h2>
+
+<h3 id="-289">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/localusers/{id}</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the information of a single Local User.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20information20of20a20single20voucher0a3ca20id3dget20the20information20of20a20single20voucher3e203ca3e">Get the Information of a single Voucher
+<a id="Get" the="" information="" of="" a="" single="" voucher=""> </a></h2>
+
+<h3 id="-292">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/vouchers/{id}</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the detailed information of a single voucher.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20information20of20the20operator20that20has20logged20in0a3ca20id3dget20the20information20of20the20operator20that20has20logged20in3e203ca3e">Get the Information of the Operator that has Logged in
+<a id="Get" the="" information="" of="" operator="" that="" has="" logged="" in=""> </a></h2>
+
+<h3 id="-295">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/current</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the information of the Operator that has logged in.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20list20of20authorized20clients0a3ca20id3dget20the20list20of20authorized20clients3e203ca3e">Get the List of Authorized Clients
+<a id="Get" the="" list="" of="" authorized="" clients=""> </a></h2>
+
+<h3 id="-298">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/clients</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the list of authorized clients.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20list20of20local20users0a3ca20id3dget20the20list20of20local20users3e203ca3e">Get the List of Local Users
+<a id="Get" the="" list="" of="" local="" users=""> </a></h2>
+
+<h3 id="-301">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/localusers</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the list of local users on the site. Pagination is supported and can be searched with keywords.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20list20of20operators0a3ca20id3dget20the20list20of20operators3e203ca3e">Get the List of Operators
+<a id="Get" the="" list="" of="" operators=""> </a></h2>
+
+<h3 id="-304">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/operators</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the list of operator accounts for Hotspot management on the site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20list20of20vouchers0a3ca20id3dget20the20list20of20vouchers3e203ca3e">Get the List of Vouchers
+<a id="Get" the="" list="" of="" vouchers=""> </a></h2>
+
+<h3 id="-307">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/sites/{siteKey}/vouchers</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the list of vouchers on the site. Pagination is supported.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="import20local20users20into20the20site0a3ca20id3dimport20local20users20into20the20site3e203ca3e">Import Local Users into the Site
+<a id="Import" local="" users="" into="" the="" site=""> </a></h2>
+
+<h3 id="-310">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/files/sites/{siteKey}/localusers</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Import Local Users into the site from the file in the format of CSV or Excel.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="receive20clients2720authentication20information20from20external20portal20server0a3ca20id3dreceive20clients2720authentication20information20from20external20portal20server3e203ca3e">Receive Clients' Authentication Information from External Portal Server
+<a id="Receive" clients'="" authentication="" information="" from="" external="" portal="" server=""> </a></h2>
+
+<h3 id="-313">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/extPortal/auth</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Receive clients' authentication information from External Portal Server.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="reset20the20mac20address20bound20with20the20local20user2028dynamic20binding290a3ca20id3dreset20the20mac20address20bound20with20the20local20user2028dynamic20binding293e203ca3e">Reset the MAC Address Bound with the Local User (Dynamic Binding)
+<a id="Reset" the="" mac="" address="" bound="" with="" local="" user="" (dynamic="" binding)=""> </a></h2>
+
+<h3 id="-316">Basic Information</h3>
+<p><strong>Path：</strong>  /api/v2/hotspot/sites/{siteKey}/cmd/localusers/{id}/clearDynamicMac</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reset the MAC address bound with one Local User.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="use20an20operator20account20to20log20in20to20the20hotspot20manager20system0a3ca20id3duse20an20operator20account20to20log20in20to20the20hotspot20manager20system3e203ca3e">Use an Operator Account to Log In to the Hotspot Manager System
+<a id="Use" an="" operator="" account="" to="" log="" in="" the="" hotspot="" manager="" system=""> </a></h2>
+
+<h3 id="-319">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/hotspot/login</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Use an operator account to log in to the Hotspot manager system.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h1 id="insight">Insight</h1>
+
+<h2 id="delete20a20client0a3ca20id3ddelete20a20client3e203ca3e">Delete a Client
+<a id="Delete" a="" client=""> </a></h2>
+
+<h3 id="-322">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/clients/{clientMac}</p>
+<p><strong>Method：</strong> DELETE</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delete a Client</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20list20of20rogue20aps0a3ca20id3dget20the20list20of20rogue20aps3e203ca3e">Get the List of Rogue APs
+<a id="Get" the="" list="" of="" rogue="" aps=""> </a></h2>
+
+<h3 id="-325">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/insight/neighbors</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>It is used to get the list of rough APs after scanning, and it supports paging display.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20list20of20the20known20clients200a3ca20id3dget20the20list20of20the20known20clients203e203ca3e">Get the List of the Known Clients 
+<a id="Get" the="" list="" of="" known="" clients=""> </a></h2>
+
+<h3 id="-328">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/insight/clients</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>It is used to get the list of the known clients, and it supports <span class="colour" style="color:rgb(102, 102, 102)">paging&nbsp;display.</span></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="start20to20scan20rogue20aps0a3ca20id3dstart20to20scan20rogue20aps3e203ca3e">Start to Scan Rogue APs
+<a id="Start" to="" scan="" rogue="" aps=""> </a></h2>
+
+<h3 id="-331">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/neighbors/scan</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scan the Rough APs</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="log">Log</h1>
+
+<h2 id="archive20all20alert20logs20in20the20current20site0a3ca20id3darchive20all20alert20logs20in20the20current20site3e203ca3e">Archive All Alert Logs in the Current Site
+<a id="Archive" all="" alert="" logs="" in="" the="" current="" site=""> </a></h2>
+
+<h3 id="-334">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/alerts/archiveAll</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Archive all Alert logs in the current site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="archive20an20alert20log20entry200a3ca20id3darchive20an20alert20log20entry203e203ca3e">Archive an Alert Log Entry 
+<a id="Archive" an="" alert="" log="" entry=""> </a></h2>
+
+<h3 id="-337">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/alerts/archive/{id}</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Archive an Alert log entry.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="change20the20notification20configurations0a3ca20id3dchange20the20notification20configurations3e203ca3e">Change the Notification Configurations
+<a id="Change" the="" notification="" configurations=""> </a></h2>
+
+<h3 id="-340">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/notification</p>
+<p><strong>Method：</strong> PATCH</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Change the notification configurations.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20list20of20the20alert20logs0a3ca20id3dget20the20list20of20the20alert20logs3e203ca3e">Get the List of the Alert Logs
+<a id="Get" the="" list="" of="" alert="" logs=""> </a></h2>
+
+<h3 id="-343">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/alerts</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the list of the Alert logs. Pagination is supported.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20list20of20the20alert20logs20in20batch0a3ca20id3dget20the20list20of20the20alert20logs20in20batch3e203ca3e">Get the List of the Alert Logs in Batch
+<a id="Get" the="" list="" of="" alert="" logs="" in="" batch=""> </a></h2>
+
+<h3 id="-346">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/batchAlerts</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the list of the Alert logs in batch.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20list20of20the20event20log0a3ca20id3dget20the20list20of20the20event20log3e203ca3e">Get the List of the Event Log
+<a id="Get" the="" list="" of="" event="" log=""> </a></h2>
+
+<h3 id="-349">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/events</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the list of the Event logs. Pagination is supported.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20list20of20the20event20logs20in20batch0a3ca20id3dget20the20list20of20the20event20logs20in20batch3e203ca3e">Get the List of the Event Logs in Batch
+<a id="Get" the="" list="" of="" event="" logs="" in="" batch=""> </a></h2>
+
+<h3 id="-352">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/batchEvents</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the list of the Event logs. Pagination is not supported.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20number20of20the20alert20logs0a3ca20id3dget20the20number20of20the20alert20logs3e203ca3e">Get the Number of the Alert Logs
+<a id="Get" the="" number="" of="" alert="" logs=""> </a></h2>
+
+<h3 id="-355">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/alerts/num</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the number of the Alert logs.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="reset20all20notification20configurations20in20the20current20site20to20the20default0a3ca20id3dreset20all20notification20configurations20in20the20current20site20to20the20default3e203ca3e">Reset All Notification Configurations in the Current Site to the Default
+<a id="Reset" all="" notification="" configurations="" in="" the="" current="" site="" to="" default=""> </a></h2>
+
+<h3 id="-358">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/notification/restore</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reset all notification configurations in the current site to the default.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="view20the20notification20configurations0a3ca20id3dview20the20notification20configurations3e203ca3e">View the Notification Configurations
+<a id="View" the="" notification="" configurations=""> </a></h2>
+
+<h3 id="-361">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/notification</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>View the notification configurations.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h1 id="settings-authentication28radiusprofiles29">Settings-Authentication(RadiusProfiles)</h1>
+
+<h2 id="add20a20new20radius20profile0a3ca20id3dadd20a20new20radius20profile3e203ca3e">Add a New RADIUS Profile
+<a id="Add" a="" new="" radius="" profile=""> </a></h2>
+
+<h3 id="-364">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/radiusProfiles</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add a new RADIUS profile.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="delete20radius20profile0a3ca20id3ddelete20radius20profile3e203ca3e">Delete RADIUS Profile
+<a id="Delete" radius="" profile=""> </a></h2>
+
+<h3 id="-367">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/radiusProfiles/{radiusProfileId}</p>
+<p><strong>Method：</strong> DELETE</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delete the configurations of the RADIUS profiles.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="edit20the20radius20profile0a3ca20id3dedit20the20radius20profile3e203ca3e">Edit the RADIUS Profile
+<a id="Edit" the="" radius="" profile=""> </a></h2>
+
+<h3 id="-370">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/radiusProfiles/{radiusProfileId}</p>
+<p><strong>Method：</strong> PATCH</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Edit the configurations of RADIUS profile.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="query20radius20profile0a3ca20id3dquery20radius20profile3e203ca3e">Query RADIUS Profile
+<a id="Query" radius="" profile=""> </a></h2>
+
+<h3 id="-373">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/radiusProfiles</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Query the configurations of the RADIUS profile.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h1 id="settings-authentication28macauth29">Settings-Authentication(MacAuth)</h1>
+
+<h2 id="edit20the20configurations20of20the20mac-based20authentication0a3ca20id3dedit20the20configurations20of20the20mac-based20authentication3e203ca3e">Edit the Configurations of the MAC-Based Authentication
+<a id="Edit" the="" configurations="" of="" mac-based="" authentication=""> </a></h2>
+
+<h3 id="-376">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/macAuth</p>
+<p><strong>Method：</strong> PATCH</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Edit the configurations of the MAC-Based Authentication.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20configurations20of20the20mac-based20authentication0a3ca20id3dget20the20configurations20of20the20mac-based20authentication3e203ca3e">Get the Configurations of the MAC-Based Authentication
+<a id="Get" the="" configurations="" of="" mac-based="" authentication=""> </a></h2>
+
+<h3 id="-379">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/macAuth</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the configurations of the MAC-based Authentication.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="get20the20list20of20ssids20supporting20mac-based20authentication20in20all20the20wlan20groups20of20the20site0a3ca20id3dget20the20list20of20ssids20supporting20mac-based20authentication20in20all20the20wlan20groups20of20the20site3e203ca3e">Get the List of SSIDs Supporting MAC-Based Authentication in All the WLAN Groups of the Site
+<a id="Get" the="" list="" of="" ssids="" supporting="" mac-based="" authentication="" in="" all="" wlan="" groups="" site=""> </a></h2>
+
+<h3 id="-382">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/macAuthSsids</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>It is used to get the list of SSIDs supporting MAC-Based 
+Authentication in all the WLAN Groups of the Site, and the drop-down 
+list of the SSIDs will be displayed.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h1 id="settings-controller">Settings-Controller</h1>
+
+<h2 id="delete20https20certificate0a3ca20id3ddelete20https20certificate3e203ca3e">Delete HTTPS Certificate
+<a id="Delete" https="" certificate=""> </a></h2>
+
+<h3 id="-385">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/files/controller/certificate</p>
+<p><strong>Method：</strong> DELETE</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>It is used to delete HTTPS certificate that has been uploaded.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<h2 id="edit20the20configurations20of20history20data20retention0a3ca20id3dedit20the20configurations20of20history20data20retention3e203ca3e">Edit the Configurations of History Data Retention
+<a id="Edit" the="" configurations="" of="" history="" data="" retention=""> </a></h2>
+
+<h3 id="-387">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/controller/history</p>
+<p><strong>Method：</strong> PATCH</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Edit the configurations of History Data Retention.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="edit20the20configurations20of20mail20server0a3ca20id3dedit20the20configurations20of20mail20server3e203ca3e">Edit the Configurations of Mail Server
+<a id="Edit" the="" configurations="" of="" mail="" server=""> </a></h2>
+
+<h3 id="-390">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/controller/mail/setting</p>
+<p><strong>Method：</strong> PATCH</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Edit the configurations of Mail Server.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="edit20the20configurations20of20the20controller0a3ca20id3dedit20the20configurations20of20the20controller3e203ca3e">Edit the Configurations of the Controller
+<a id="Edit" the="" configurations="" of="" controller=""> </a></h2>
+
+<h3 id="-393">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/controller/setting</p>
+<p><strong>Method：</strong> PATCH</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Edit the configurations of the controller.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="get20controller20settings0a3ca20id3dget20controller20settings3e203ca3e">Get Controller Settings
+<a id="Get" controller="" settings=""> </a></h2>
+
+<h3 id="-396">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/controller/setting</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get global settings of the controller.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<h2 id="get20the20configurations20of20history20data20retention0a3ca20id3dget20the20configurations20of20history20data20retention3e203ca3e">Get the Configurations of History Data Retention
+<a id="Get" the="" configurations="" of="" history="" data="" retention=""> </a></h2>
+
+<h3 id="-399">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/controller/history</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the configurations of History Data Retention.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<h2 id="get20the20configurations20of20mail20server0a3ca20id3dget20the20configurations20of20mail20server3e203ca3e">Get the Configurations of Mail Server
+<a id="Get" the="" configurations="" of="" mail="" server=""> </a></h2>
+
+<h3 id="-402">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/controller/mail/setting</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the configurations of Mail Server.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<h2 id="send20test20email0a3ca20id3dsend20test20email3e203ca3e">Send Test Email
+<a id="Send" test="" email=""> </a></h2>
+
+<h3 id="-405">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/controller/cmd/testMail</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>It is used to send email to the user to test the configurations of SMTP server.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="upload20the20https20certificate0a3ca20id3dupload20the20https20certificate3e203ca3e">Upload the HTTPS Certificate
+<a id="Upload" the="" https="" certificate=""> </a></h2>
+
+<h3 id="-407">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/files/controller/certificate</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Upload the HTTPS certificate.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h1 id="settings-network20security">Settings-Network Security</h1>
+
+<h2 id="edit20the20configurations20of20attack20defense0a3ca20id3dedit20the20configurations20of20attack20defense3e203ca3e">Edit the Configurations of Attack Defense
+<a id="Edit" the="" configurations="" of="" attack="" defense=""> </a></h2>
+
+<h3 id="-410">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/firewall/attackdefense</p>
+<p><strong>Method：</strong> PUT</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Edit the configurations of attack defense.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="create20new20acl20rules0a3ca20id3dcreate20new20acl20rules3e203ca3e">Create New ACL Rules
+<a id="Create" new="" acl="" rules=""> </a></h2>
+
+<h3 id="-413">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/firewall/acls</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create new ACL rules.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="delete20a20url20filtering20rule0a3ca20id3ddelete20a20url20filtering20rule3e203ca3e">Delete a URL Filtering Rule
+<a id="Delete" a="" url="" filtering="" rule=""> </a></h2>
+
+<h3 id="-416">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/firewall/urlfilterings/{urlfilteringId}</p>
+<p><strong>Method：</strong> DELETE</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delete a URL filtering rule.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="delete20an20acl20rule0a3ca20id3ddelete20an20acl20rule3e203ca3e">Delete an ACL Rule
+<a id="Delete" an="" acl="" rule=""> </a></h2>
+
+<h3 id="-419">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/firewall/acls/{aclId}</p>
+<p><strong>Method：</strong> DELETE</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delete an ACL rule.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="edit20an20acl20rule200a3ca20id3dedit20an20acl20rule203e203ca3e">Edit an ACL Rule 
+<a id="Edit" an="" acl="" rule=""> </a></h2>
+
+<h3 id="-422">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/firewall/acls/{aclId}</p>
+<p><strong>Method：</strong> PUT</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Edit an ACL rule.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="create20a20new20url20filtering20rule0a3ca20id3dcreate20a20new20url20filtering20rule3e203ca3e">Create a New URL Filtering Rule
+<a id="Create" a="" new="" url="" filtering="" rule=""> </a></h2>
+
+<h3 id="-425">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/firewall/urlfilterings</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create a new URL filtering rule.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="edit20the20rules20of20url20filtering0a3ca20id3dedit20the20rules20of20url20filtering3e203ca3e">Edit the Rules of URL Filtering
+<a id="Edit" the="" rules="" of="" url="" filtering=""> </a></h2>
+
+<h3 id="-428">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/firewall/urlfilterings/{urlfilteringId}</p>
+<p><strong>Method：</strong> PUT</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Edit the rules of URL filtering.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="query20the20list20of20acl20rules0a3ca20id3dquery20the20list20of20acl20rules3e203ca3e">Query the List of ACL Rules
+<a id="Query" the="" list="" of="" acl="" rules=""> </a></h2>
+
+<h3 id="-431">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/firewall/acls</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Query the list of ACL rules.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="query20the20list20of20url20filtering20rules0a3ca20id3dquery20the20list20of20url20filtering20rules3e203ca3e">Query the List of URL Filtering Rules
+<a id="Query" the="" list="" of="" url="" filtering="" rules=""> </a></h2>
+
+<h3 id="-434">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/firewall/urlfilterings</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Query the list of URL filtering rules.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="reorder20the20sequence20of20acl20rules0a3ca20id3dreorder20the20sequence20of20acl20rules3e203ca3e">Reorder the Sequence of ACL Rules
+<a id="Reorder" the="" sequence="" of="" acl="" rules=""> </a></h2>
+
+<h3 id="-437">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/acls/modifyIndex</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reorder the sequence of ACL rules by dragging the rules.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="reorder20the20url20filtering20rules0a3ca20id3dreorder20the20url20filtering20rules3e203ca3e">Reorder the URL Filtering Rules
+<a id="Reorder" the="" url="" filtering="" rules=""> </a></h2>
+
+<h3 id="-440">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/urlfilterings/modifyIndex</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reorder the URL filtering rules by dragging the rules.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="settings-maintenance">Settings-Maintenance</h1>
+
+<h2 id="query20the20status20of20controller0a3ca20id3dquery20the20status20of20controller3e203ca3e">Query the Status of Controller
+<a id="Query" the="" status="" of="" controller=""> </a></h2>
+
+<h3 id="-443">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/maintenance/controllerStatus</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Query the status of the controller.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<h1 id="settings-migration">Settings-Migration</h1>
+
+<h2 id="create20a20new20site20by20copying20an20existing20site0a3ca20id3dcreate20a20new20site20by20copying20an20existing20site3e203ca3e">Create a New Site by Copying an Existing Site
+<a id="Create" a="" new="" site="" by="" copying="" an="" existing=""> </a></h2>
+
+<h3 id="-446">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/migrate/copySite</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>You can quickly create a site based on an existing one on the 
+controller by copying its site configuration, wired configuration, and 
+wireless configuration among others. After that, you can flexibly modify
+ the new site configuration to make it different from the old.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h1 id="settings-profiles-group">Settings-Profiles-Group</h1>
+
+<h2 id="add20group0a3ca20id3dadd20group3e203ca3e">Add Group
+<a id="Add" group=""> </a></h2>
+
+<h3 id="-449">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/profiles/groups</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add a group.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="delete20group0a3ca20id3ddelete20group3e203ca3e">Delete Group
+<a id="Delete" group=""> </a></h2>
+
+<h3 id="-452">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/profiles/groups/{groupType}/{groupId}</p>
+<p><strong>Method：</strong> DELETE</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delete a group.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="modify20group0a3ca20id3dmodify20group3e203ca3e">Modify Group
+<a id="Modify" group=""> </a></h2>
+
+<h3 id="-455">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/profiles/groups/{groupType}/{groupId}</p>
+<p><strong>Method：</strong> PATCH</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modify a group.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="query20groups0a3ca20id3dquery20groups3e203ca3e">Query Groups
+<a id="Query" groups=""> </a></h2>
+
+<h3 id="-458">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/profiles/groups</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Query the list of groups.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="query20the20list20of20clients2028used20for20adding20mac20addresses290a3ca20id3dquery20the20list20of20clients2028used20for20adding20mac20addresses293e203ca3e">Query the List of Clients (Used for Adding Mac Addresses)
+<a id="Query" the="" list="" of="" clients="" (used="" for="" adding="" mac="" addresses)=""> </a></h2>
+
+<h3 id="-461">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/macProfiles/clients</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Query the list of clients used for adding Mac Addresses.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="query20the20list20of20groups20based20on20group20type0a3ca20id3dquery20the20list20of20groups20based20on20group20type3e203ca3e">Query the List of Groups Based on Group Type
+<a id="Query" the="" list="" of="" groups="" based="" on="" group="" type=""> </a></h2>
+
+<h3 id="-464">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/profiles/groups/{groupType}</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Query the list of groups based on the group type.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="upload20a20file20to20inport20mac20addresses20in20batches0a3ca20id3dupload20a20file20to20inport20mac20addresses20in20batches3e203ca3e">Upload a File to Inport Mac Addresses in Batches
+<a id="Upload" a="" file="" to="" inport="" mac="" addresses="" in="" batches=""> </a></h2>
+
+<h3 id="-467">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/files/sites/{siteKey}/macFilters</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Upload a file to import Mac Addresses in batches.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h1 id="settings-profiles-timerange">Settings-Profiles-TimeRange</h1>
+
+<h2 id="add20time20range0a3ca20id3dadd20time20range3e203ca3e">Add Time Range
+<a id="Add" time="" range=""> </a></h2>
+
+<h3 id="-470">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/profiles/timeranges</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add a time range.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="delete20time20range0a3ca20id3ddelete20time20range3e203ca3e">Delete Time Range
+<a id="Delete" time="" range=""> </a></h2>
+
+<h3 id="-473">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/profiles/timeranges/{scheduleProfileId}</p>
+<p><strong>Method：</strong> DELETE</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delete a time range.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="modify20time20range0a3ca20id3dmodify20time20range3e203ca3e">Modify Time Range
+<a id="Modify" time="" range=""> </a></h2>
+
+<h3 id="-476">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/profiles/timeranges/{scheduleProfileId}</p>
+<p><strong>Method：</strong> PATCH</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modify a time range.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="query20time20range0a3ca20id3dquery20time20range3e203ca3e">Query Time Range
+<a id="Query" time="" range=""> </a></h2>
+
+<h3 id="-479">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/profiles/timeranges</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Query a time range.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+<h1 id="settings-service">Settings-Service</h1>
+
+<h2 id="create20a20reboot20schedule0a3ca20id3dcreate20a20reboot20schedule3e203ca3e">Create a Reboot Schedule
+<a id="Create" a="" reboot="" schedule=""> </a></h2>
+
+<h3 id="-482">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/service/rebootSchedules</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create a reboot schedule.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="delete20a20reboot20schedule0a3ca20id3ddelete20a20reboot20schedule3e203ca3e">Delete a Reboot Schedule
+<a id="Delete" a="" reboot="" schedule=""> </a></h2>
+
+<h3 id="-485">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/service/rebootSchedules/{rebootScheduleId}</p>
+<p><strong>Method：</strong> DELETE</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delete a reboot schedule.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="export20the20operation20log20of20controller0a3ca20id3dexport20the20operation20log20of20controller3e203ca3e">Export the Operation Log of Controller
+<a id="Export" the="" operation="" log="" of="" controller=""> </a></h2>
+
+<h3 id="-488">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/files/serverLogs</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Export the operation log of the controller.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+<h2 id="modify20ssh0a3ca20id3dmodify20ssh3e203ca3e">Modify SSH
+<a id="Modify" ssh=""> </a></h2>
+
+<h3 id="-491">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/ssh</p>
+<p><strong>Method：</strong> PUT</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modify SSH.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="modify20a20reboot20schedule0a3ca20id3dmodify20a20reboot20schedule3e203ca3e">Modify a Reboot Schedule
+<a id="Modify" a="" reboot="" schedule=""> </a></h2>
+
+<h3 id="-494">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/service/rebootSchedules/{rebootScheduleId}</p>
+<p><strong>Method：</strong> PUT</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modify a reboot schedule.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="modify20the20settings20of20snmp0a3ca20id3dmodify20the20settings20of20snmp3e203ca3e">Modify the Settings of SNMP
+<a id="Modify" the="" settings="" of="" snmp=""> </a></h2>
+
+<h3 id="-497">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/Default/setting/snmp</p>
+<p><strong>Method：</strong> PUT</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modify the settings of SNMP.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="query20ssh0a3ca20id3dquery20ssh3e203ca3e">Query SSH
+<a id="Query" ssh=""> </a></h2>
+
+<h3 id="-500">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/ssh</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Query SSH.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="query20the20list20of20reboot20schedules0a3ca20id3dquery20the20list20of20reboot20schedules3e203ca3e">Query the List of Reboot Schedules
+<a id="Query" the="" list="" of="" reboot="" schedules=""> </a></h2>
+
+<h3 id="-503">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/service/rebootSchedules</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Query the list of reboot schedules.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="query20the20settings20of20snmp0a3ca20id3dquery20the20settings20of20snmp3e203ca3e">Query the Settings of SNMP
+<a id="Query" the="" settings="" of="" snmp=""> </a></h2>
+
+<h3 id="-506">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/Default/setting/snmp</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Query the settings of SNMP.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<h1 id="site">Site</h1>
+
+<h2 id="add20a20new20site0a3ca20id3dadd20a20new20site3e203ca3e">Add a New Site
+<a id="Add" a="" new="" site=""> </a></h2>
+
+<h3 id="-509">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add a new site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="create20a20new20scenario20for20a20site0a3ca20id3dcreate20a20new20scenario20for20a20site3e203ca3e">Create a New Scenario for a Site
+<a id="Create" a="" new="" scenario="" for="" site=""> </a></h2>
+
+<h3 id="-512">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/scenarios</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create a new scenario for a site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="delete20a20site0a3ca20id3ddelete20a20site3e203ca3e">Delete a Site
+<a id="Delete" a="" site=""> </a></h2>
+
+<h3 id="-515">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}</p>
+<p><strong>Method：</strong> DELETE</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delete a site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="edit20the20site20configuration0a3ca20id3dedit20the20site20configuration3e203ca3e">Edit the Site Configuration
+<a id="Edit" the="" site="" configuration=""> </a></h2>
+
+<h3 id="-518">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting</p>
+<p><strong>Method：</strong> PATCH</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Edit the site configuration.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20all20the20settings20of20a20site0a3ca20id3dget20all20the20settings20of20a20site3e203ca3e">Get All the Settings of a Site
+<a id="Get" all="" the="" settings="" of="" a="" site=""> </a></h2>
+
+<h3 id="-521">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get all the settings of a site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="get20a20certain20piece20of20setting20information20of20a20site0a3ca20id3dget20a20certain20piece20of20setting20information20of20a20site3e203ca3e">Get a Certain Piece of Setting Information of a Site
+<a id="Get" a="" certain="" piece="" of="" setting="" information="" site=""> </a></h2>
+
+<h3 id="-524">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/{settingKey}</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get a certain piece of setting information of a site</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="get20the20list20of20all20scenarios0a3ca20id3dget20the20list20of20all20scenarios3e203ca3e">Get the List of All Scenarios
+<a id="Get" the="" list="" of="" all="" scenarios=""> </a></h2>
+
+<h3 id="-527">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/scenarios</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the list of all scenarios of the controller.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<h2 id="get20the20list20of20sites0a3ca20id3dget20the20list20of20sites3e203ca3e">Get the List of Sites
+<a id="Get" the="" list="" of="" sites=""> </a></h2>
+
+<h3 id="-530">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the list of all sites of the controller.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<h2 id="switch20the20site0a3ca20id3dswitch20the20site3e203ca3e">Switch the Site
+<a id="Switch" the="" site=""> </a></h2>
+
+<h3 id="-533">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/switch</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>It is used to switch the site where the user is.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h1 id="settings-wirelessnetwork-wlangroup">Settings-WirelessNetwork-WlanGroup</h1>
+
+<h2 id="add20a20new20wlan20group0a3ca20id3dadd20a20new20wlan20group3e203ca3e">Add a New WLAN Group
+<a id="Add" a="" new="" wlan="" group=""> </a></h2>
+
+<h3 id="-536">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/wlans</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add a new WLAN group.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="check20if20the20number20of20wlan20group20of20all20sites20exceeds20the20limit0a3ca20id3dcheck20if20the20number20of20wlan20group20of20all20sites20exceeds20the20limit3e203ca3e">Check if the Number of WLAN Group of All Sites Exceeds the Limit
+<a id="Check" if="" the="" number="" of="" wlan="" group="" all="" sites="" exceeds="" limit=""> </a></h2>
+
+<h3 id="-539">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/cmd/countWlans</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>When adding a WLAN Group, it will check if the number of WLAN group of all sites exceeds the limit.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="delete20the20wlan20group0a3ca20id3ddelete20the20wlan20group3e203ca3e">Delete the WLAN Group
+<a id="Delete" the="" wlan="" group=""> </a></h2>
+
+<h3 id="-542">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/wlans/{wlanId}</p>
+<p><strong>Method：</strong> DELETE</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delete the WLAN group.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="edit20the20wlan20group0a3ca20id3dedit20the20wlan20group3e203ca3e">Edit the WLAN group
+<a id="Edit" the="" wlan="" group=""> </a></h2>
+
+<h3 id="-545">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/wlans/{wlanId}</p>
+<p><strong>Method：</strong> PATCH</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Edit the information of the WLAN group.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20key20information20of20all20the20wlan20groups20and20ssids20in20the20specified20site0a3ca20id3dget20the20key20information20of20all20the20wlan20groups20and20ssids20in20the20specified20site3e203ca3e">Get the Key Information of All the WLAN Groups and SSIDs in the Specified Site
+<a id="Get" the="" key="" information="" of="" all="" wlan="" groups="" and="" ssids="" in="" specified="" site=""> </a></h2>
+
+<h3 id="-548">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/wlanSsid</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the key information of all the WLAN groups and SSIDs in the specified site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20list20of20all20the20wlan20groups20and20corresponding20ssids20in20the20specified20site0a3ca20id3dget20the20list20of20all20the20wlan20groups20and20corresponding20ssids20in20the20specified20site3e203ca3e">Get the List of All the WLAN Groups and Corresponding SSIDs in the Specified Site
+<a id="Get" the="" list="" of="" all="" wlan="" groups="" and="" corresponding="" ssids="" in="" specified="" site=""> </a></h2>
+
+<h3 id="-551">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/ssids</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the list of all the WLAN groups and corresponding SSIDs in the specified site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="get20the20wlan20group20list0a3ca20id3dget20the20wlan20group20list3e203ca3e">Get the WLAN Group List
+<a id="Get" the="" wlan="" group="" list=""> </a></h2>
+
+<h3 id="-554">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/wlans</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the WLAN group list of the specified site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h1 id="settings-wirelessnetwork-ssid">Settings-WirelessNetwork-SSID</h1>
+
+<h2 id="add20ssid0a3ca20id3dadd20ssid3e203ca3e">Add SSID
+<a id="Add" ssid=""> </a></h2>
+
+<h3 id="-557">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/wlans/{wlanId}/ssids</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add an SSID in the specified WLAN Group of a certain site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="delete20ssid0a3ca20id3ddelete20ssid3e203ca3e">Delete SSID
+<a id="Delete" ssid=""> </a></h2>
+
+<h3 id="-560">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/wlans/{wlanId}/ssids/{ssidId}</p>
+<p><strong>Method：</strong> DELETE</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delete the specified SSID.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+<h2 id="get20ssid20list0a3ca20id3dget20ssid20list3e203ca3e">Get SSID List
+<a id="Get" ssid="" list=""> </a></h2>
+
+<h3 id="-563">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/wlans/{wlanId}/ssids</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the SSID list in the specified WLAN Group of a certain site.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<h2 id="modify20ssid0a3ca20id3dmodify20ssid3e203ca3e">Modify SSID
+<a id="Modify" ssid=""> </a></h2>
+
+<h3 id="-566">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/setting/wlans/{wlanId}/ssids/{ssidId}</p>
+<p><strong>Method：</strong> PATCH</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modify the specified SSID.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="statistic">Statistic</h1>
+
+<h2 id="get20the20general20information20of20the20managed20devices20at20hourly20intervals0a3ca20id3dget20the20general20information20of20the20managed20devices20at20hourly20intervals3e203ca3e">Get the General Information of the Managed Devices at Hourly Intervals
+<a id="Get" the="" general="" information="" of="" managed="" devices="" at="" hourly="" intervals=""> </a></h2>
+
+<h3 id="-569">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/stat/{deviceMac}/hourly</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the general information of the managed devices at hourly intervals.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20general20information20of20the20managed20devices20at20a205-minute20interval0a3ca20id3dget20the20general20information20of20the20managed20devices20at20a205-minute20interval3e203ca3e">Get the General Information of the Managed Devices at a 5-Minute Interval
+<a id="Get" the="" general="" information="" of="" managed="" devices="" at="" a="" 5-minute="" interval=""> </a></h2>
+
+<h3 id="-572">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/stat/{deviceMac}/5min</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the general information of the managed devices at a 5-minute interval.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="get20the20general20information20of20the20managed20devices20at20a20daily20intervals0a3ca20id3dget20the20general20information20of20the20managed20devices20at20a20daily20intervals3e203ca3e">Get the General Information of the Managed Devices at a Daily Intervals
+<a id="Get" the="" general="" information="" of="" managed="" devices="" at="" a="" daily="" intervals=""> </a></h2>
+
+<h3 id="-575">Basic Information</h3>
+<p><strong>Path：</strong> /api/v2/sites/{siteKey}/stat/{deviceMac}/daily</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>API Description：</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Introduction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get the general information of the managed devices at daily intervals.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+          </div>
+        </div>
+      
+      
+      </body></html>
