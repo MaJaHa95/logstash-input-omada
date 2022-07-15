@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = 'logstash-input-omada'
-  s.version       = '0.1.0'
+  s.version       = '0.1.1'
   s.licenses      = ['Apache-2.0']
   s.summary       = 'Poll Omada API for clients, devices, and statistics.'
   s.description   = 'Poll Omada API for clients, devices, and statistics.'
