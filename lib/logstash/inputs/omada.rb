@@ -268,18 +268,20 @@ class OmadaSite
     ret = []
     
     if last
-      last["ports"].each { |port|
-        ret.append({
-          time: last["time"],
-          port: {
-              id: port["portId"],
-              name: port["name"]
-          },
-          latencyMs: port["latency"],
-          downloadBandwidthMbps: port["down"],
-          uploadBandwidthMbps: port["up"]
-        })
-      }
+      if last["ports"]
+        last["ports"].each { |port|
+          ret.append({
+            time: last["time"],
+            port: {
+                id: port["portId"],
+                name: port["name"]
+            },
+            latencyMs: port["latency"],
+            downloadBandwidthMbps: port["down"],
+            uploadBandwidthMbps: port["up"]
+          })
+        }
+      end
     end
 
     return ret
